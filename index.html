@@ -4,47 +4,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vishnu Vardhan | Data Analyst Portfolio</title>
-  
-  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Three.js + Vanta.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r150/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
 </head>
 <body>
-  <div id="hero">
-    <div class="content">
+  <!-- HERO SECTION -->
+  <header id="hero">
+    <div class="hero-content">
       <h3 class="profile-label">Profile</h3>
       <img src="images/your-avatar.png" alt="Profile Picture" class="avatar" />
       <h1>Vishnu Vardhan</h1>
       <h2>Data Analyst | SQL | Python | Power BI | Tableau</h2>
-      <p>Turning data into insights through storytelling and analysis.</p>
+      <p>Turning complex data into actionable insights through analysis and storytelling.</p>
       <div class="buttons">
         <a href="#projects" class="btn primary">View My Projects</a>
         <a href="#contact" class="btn secondary">Hire Me</a>
         <a href="resume.pdf" class="btn tertiary">View Resume</a>
       </div>
     </div>
-  </div>
+  </header>
 
-  <!-- Vanta.js Waves Animation -->
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>Hello! I'm Vishnu Vardhan, an aspiring Data Analyst with a passion for transforming raw data into meaningful insights that drive strategic decision-making.</p>
+    <p>With hands-on experience in data analysis, I specialize in uncovering patterns, trends, and opportunities hidden within complex datasets. My approach combines technical expertise with storytelling to make data accessible and actionable.</p>
+    <p>Education:</p>
+    <ul>
+      <li>Master of Science in Data Analytics, Webster University — Expected March 2026 | CGPA: 3.7/4.0</li>
+      <li>B.Tech in Information Technology, Jawaharlal Institute of Technology and Science — 2024 | CGPA: 7.0/10</li>
+    </ul>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="section">
+    <h2>Skills & Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill">Python <span>Advanced</span></div>
+      <div class="skill">Pandas / NumPy <span>Intermediate</span></div>
+      <div class="skill">Data Visualization <span>Matplotlib, Seaborn, Plotly</span></div>
+      <div class="skill">SQL <span>Advanced — Joins, Aggregations</span></div>
+      <div class="skill">Excel <span>Intermediate — Pivot tables, Charts</span></div>
+      <div class="skill">Snowflake <span>Advanced — Cloud Data Platform</span></div>
+      <div class="skill">Power BI <span>Advanced</span></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+<section id="contact">
+  <h2>Let's Connect</h2>
+  <p>Want to collaborate or just say hi? Reach out below:</p>
+  <ul>
+    <li><strong>Email:</strong> <a href="mailto:vishnumutha1410@gmail.com">vishnumutha1410@gmail.com</a></li>
+    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vishnu-vardhan-mutha-5187942b9/" target="_blank">linkedin.com/in/vishnu-vardhan-mutha</a></li>
+    <li><strong>GitHub:</strong> <a href="https://github.com/vishnumutha1410" target="_blank">github.com/vishnumutha1410</a></li>
+  </ul>
+
+  <form action="https://formspree.io/f/xanawzqr" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="_replyto" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+
+  <footer class="site-footer">
+    <p>© 2025 Vishnu Vardhan. All rights reserved.</p>
+  </footer>
+
   <script>
-    VANTA.WAVES({
-      el: "#hero",
-      mouseControls: true,
-      touchControls: true,
-      minHeight: 200.0,
-      minWidth: 200.0,
-      scale: 1.0,
-      scaleMobile: 1.0,
-      color: 0x2563eb,      // change color to your preference
-      shininess: 50.0,
-      waveHeight: 25.0,     // higher = bigger waves
-      waveSpeed: 0.6,
-      zoom: 0.9,
-      THREE: THREE
-    });
+    // Subtle animated gradient background
+    let body = document.body;
+    let colors = [
+      [37, 99, 235],   // Blue
+      [20, 184, 166],  // Teal
+      [79, 70, 229]    // Indigo
+    ];
+    let step = 0;
+    function updateGradient() {
+      let c0_0 = colors[0];
+      let c0_1 = colors[1];
+      let c1_0 = colors[1];
+      let c1_1 = colors[2];
+      let istep = 0.002;
+      let r1 = Math.round((1-step)*c0_0[0]+step*c0_1[0]);
+      let g1 = Math.round((1-step)*c0_0[1]+step*c0_1[1]);
+      let b1 = Math.round((1-step)*c0_0[2]+step*c0_1[2]);
+      let r2 = Math.round((1-step)*c1_0[0]+step*c1_1[0]);
+      let g2 = Math.round((1-step)*c1_0[1]+step*c1_1[1]);
+      let b2 = Math.round((1-step)*c1_0[2]+step*c1_1[2]);
+      body.style.background = `linear-gradient(to right, rgb(${r1},${g1},${b1}), rgb(${r2},${g2},${b2}))`;
+      step += istep;
+      if (step >= 1) step = 0;
+      requestAnimationFrame(updateGradient);
+    }
+    updateGradient();
   </script>
 </body>
 </html>
