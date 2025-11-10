@@ -5,100 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vishnu Vardhan | Data Analyst Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- HERO SECTION -->
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">Vishnu<span>Vardhan</span></div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
   <header id="hero">
+    <div class="overlay"></div>
     <div class="hero-content">
-      <h3 class="profile-label">Profile</h3>
-      <img src="images/your-avatar.png" alt="Profile Picture" class="avatar" />
-      <h1>Vishnu Vardhan</h1>
-      <h2>Data Analyst | SQL | Python | Power BI | Tableau</h2>
-      <p>Turning complex data into actionable insights through analysis and storytelling.</p>
+      <h3 class="subtitle">Turning Data Into Decisions</h3>
+      <h1 class="title">Vishnu Vardhan</h1>
+      <p class="tagline">Data Analyst | SQL | Python | Power BI | Tableau | Snowflake</p>
+      <p class="hero-desc">
+        I help businesses grow by transforming complex datasets into actionable insights, 
+        visual stories, and measurable outcomes.
+      </p>
       <div class="buttons">
         <a href="#projects" class="btn primary">View My Projects</a>
-        <a href="#contact" class="btn secondary">Hire Me</a>
-        <a href="resume.pdf" class="btn tertiary">View Resume</a>
+        <a href="#contact" class="btn secondary">Let’s Connect</a>
       </div>
     </div>
   </header>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="section">
+  <!-- ABOUT -->
+  <section id="about" class="section fade-up">
     <h2>About Me</h2>
-    <p>Hello! I'm Vishnu Vardhan, an aspiring Data Analyst with a passion for transforming raw data into meaningful insights that drive strategic decision-making.</p>
-    <p>With hands-on experience in data analysis, I specialize in uncovering patterns, trends, and opportunities hidden within complex datasets. My approach combines technical expertise with storytelling to make data accessible and actionable.</p>
-    <p>Education:</p>
-    <ul>
-      <li>Master of Science in Data Analytics, Webster University — Expected March 2026 | CGPA: 3.7/4.0</li>
-      <li>B.Tech in Information Technology, Jawaharlal Institute of Technology and Science — 2024 | CGPA: 7.0/10</li>
-    </ul>
+    <p>
+      I’m <strong>Vishnu Vardhan</strong>, a data-driven professional who believes every number tells a story — 
+      if you know how to listen. I specialize in <strong>data analysis, visualization, and storytelling</strong> that bridges 
+      the gap between data and decision-making.
+    </p>
+    <p>
+      Currently pursuing my <strong>Master’s in Data Analytics at Webster University</strong>, I combine analytical thinking 
+      with creative presentation to turn raw data into meaningful insights that inspire confidence and drive action.
+    </p>
+    <p>
+      My approach? <strong>Understand. Analyze. Simplify. Visualize.</strong> Whether it’s building dashboards, optimizing data pipelines, 
+      or uncovering patterns, I strive to make every dataset a story that speaks.
+    </p>
   </section>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills" class="section">
-    <h2>Skills & Expertise</h2>
+  <!-- SKILLS -->
+  <section id="skills" class="section fade-up">
+    <h2>Technical Expertise</h2>
+    <p>
+      My toolkit is a blend of data analytics, visualization, and database design — the perfect mix 
+      to convert business questions into data-backed answers.
+    </p>
     <div class="skills-grid">
-      <div class="skill">Python <span>Advanced</span></div>
-      <div class="skill">Pandas / NumPy <span>Intermediate</span></div>
-      <div class="skill">Data Visualization <span>Matplotlib, Seaborn, Plotly</span></div>
-      <div class="skill">SQL <span>Advanced — Joins, Aggregations</span></div>
-      <div class="skill">Excel <span>Intermediate — Pivot tables, Charts</span></div>
-      <div class="skill">Snowflake <span>Advanced — Cloud Data Platform</span></div>
-      <div class="skill">Power BI <span>Advanced</span></div>
+      <div class="skill-card"><h3>Python</h3><p>Data analysis, Pandas, NumPy, Matplotlib, Seaborn</p></div>
+      <div class="skill-card"><h3>SQL</h3><p>Data modeling, joins, optimization, and window functions</p></div>
+      <div class="skill-card"><h3>Power BI</h3><p>Interactive dashboards and DAX expressions</p></div>
+      <div class="skill-card"><h3>Tableau</h3><p>Storytelling with data through dynamic visualizations</p></div>
+      <div class="skill-card"><h3>Snowflake</h3><p>Cloud data warehousing and performance tuning</p></div>
+      <div class="skill-card"><h3>Excel</h3><p>Advanced formulas, pivot tables, KPI reporting</p></div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-<section id="contact">
-  <h2>Let's Connect</h2>
-  <p>Want to collaborate or just say hi? Reach out below:</p>
-  <ul>
-    <li><strong>Email:</strong> <a href="mailto:vishnumutha1410@gmail.com">vishnumutha1410@gmail.com</a></li>
-    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vishnu-vardhan-mutha-5187942b9/" target="_blank">linkedin.com/in/vishnu-vardhan-mutha</a></li>
-    <li><strong>GitHub:</strong> <a href="https://github.com/vishnumutha1410" target="_blank">github.com/vishnumutha1410</a></li>
-  </ul>
+  <!-- PROJECTS -->
+  <section id="projects" class="section fade-up">
+    <h2>Highlighted Projects</h2>
+    <p>
+      Each project I build focuses on solving real-world challenges — using data to improve 
+      understanding, efficiency, and impact.
+    </p>
 
-  <form action="https://formspree.io/f/xanawzqr" method="POST" class="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="_replyto" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>🚗 Driver Drowsiness Detection</h3>
+        <p>
+          Developed a real-time CNN-based system that detects driver fatigue through facial recognition, 
+          improving safety measures for transport services.
+        </p>
+        <span class="tools">Tech: Python, OpenCV, TensorFlow</span>
+      </div>
 
+      <div class="project-card">
+        <h3>📰 Fake News Detection</h3>
+        <p>
+          Built a machine learning classifier to detect misinformation in digital media using NLP and TF-IDF — 
+          achieving over 95% accuracy.
+        </p>
+        <span class="tools">Tech: Python, Scikit-learn, NLP</span>
+      </div>
+
+      <div class="project-card">
+        <h3>📊 Sales Data Warehouse</h3>
+        <p>
+          Designed a star schema and ETL pipeline in PostgreSQL to enable advanced business reporting 
+          and performance trend analysis.
+        </p>
+        <span class="tools">Tech: PostgreSQL, SQL, ETL</span>
+      </div>
+
+      <div class="project-card">
+        <h3>🏏 Visual Analysis of Indian Test Cricket</h3>
+        <p>
+          Created a Tableau dashboard that visualizes 90+ years of Indian cricket history — showcasing player 
+          performance, venue trends, and historical highlights.
+        </p>
+        <span class="tools">Tech: Tableau, Excel, Data Cleaning</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section fade-up">
+    <h2>Get In Touch</h2>
+    <p>
+      Have a project, collaboration, or opportunity in mind? Let’s talk about how we can 
+      turn your data into something extraordinary.
+    </p>
+    <ul class="contact-list">
+      <li><strong>Email:</strong> <a href="mailto:vishnumutha1410@gmail.com">vishnumutha1410@gmail.com</a></li>
+      <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vishnu-vardhan-mutha-5187942b9/" target="_blank">linkedin.com/in/vishnu-vardhan-mutha</a></li>
+      <li><strong>GitHub:</strong> <a href="https://github.com/vishnumutha1410" target="_blank">github.com/vishnumutha1410</a></li>
+    </ul>
+
+    <form action="https://formspree.io/f/xanawzqr" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
   <footer class="site-footer">
-    <p>© 2025 Vishnu Vardhan. All rights reserved.</p>
+    <p>© 2025 Vishnu Vardhan — Designed with precision, powered by passion.</p>
   </footer>
 
-  <script>
-    // Subtle animated gradient background
-    let body = document.body;
-    let colors = [
-      [37, 99, 235],   // Blue
-      [20, 184, 166],  // Teal
-      [79, 70, 229]    // Indigo
-    ];
-    let step = 0;
-    function updateGradient() {
-      let c0_0 = colors[0];
-      let c0_1 = colors[1];
-      let c1_0 = colors[1];
-      let c1_1 = colors[2];
-      let istep = 0.002;
-      let r1 = Math.round((1-step)*c0_0[0]+step*c0_1[0]);
-      let g1 = Math.round((1-step)*c0_0[1]+step*c0_1[1]);
-      let b1 = Math.round((1-step)*c0_0[2]+step*c0_1[2]);
-      let r2 = Math.round((1-step)*c1_0[0]+step*c1_1[0]);
-      let g2 = Math.round((1-step)*c1_0[1]+step*c1_1[1]);
-      let b2 = Math.round((1-step)*c1_0[2]+step*c1_1[2]);
-      body.style.background = `linear-gradient(to right, rgb(${r1},${g1},${b1}), rgb(${r2},${g2},${b2}))`;
-      step += istep;
-      if (step >= 1) step = 0;
-      requestAnimationFrame(updateGradient);
-    }
-    updateGradient();
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
