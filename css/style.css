@@ -63,15 +63,101 @@ nav a:hover, nav a.active {
   color: var(--accent);
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
-  min-height: 100vh;
-  text-align: center;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at top left, #0a0f2c, #081229, #03102b);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
 }
+
+/* Floating keywords animation */
+.hero::before {
+  content: "SELECT  GROUP BY  FROM  JOIN  WHERE  SUM()  AVG()  COUNT()";
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.05);
+  white-space: nowrap;
+  animation: moveWords 15s linear infinite;
+}
+
+@keyframes moveWords {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+/* Profile Photo */
+.profile-photo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #00bcd4;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 20px 0 10px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: #b8c6db;
+  margin-bottom: 20px;
+}
+
+p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+  color: #cfd9e6;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+.btn-outline {
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
+}
+
+.btn-outline:hover {
+  background: #00bcd4;
+  color: #fff;
+}
+
 
 .hero-avatar {
   width: 130px;
