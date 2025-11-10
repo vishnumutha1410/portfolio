@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vishnu Vardhan | Portfolio</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vishnu Vardhan | Data Analyst Portfolio</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Three.js + Vanta.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r150/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
 </head>
 <body>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <img src="images/your-avatar.png" alt="Profile" class="avatar" />
+  <div id="hero">
+    <div class="content">
+      <h3 class="profile-label">Profile</h3>
+      <img src="images/your-avatar.png" alt="Profile Picture" class="avatar" />
       <h1>Vishnu Vardhan</h1>
       <h2>Data Analyst | SQL | Python | Power BI | Tableau</h2>
       <p>Turning data into insights through storytelling and analysis.</p>
@@ -21,19 +26,25 @@
         <a href="resume.pdf" class="btn tertiary">View Resume</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
+  <!-- Vanta.js Waves Animation -->
   <script>
     VANTA.WAVES({
-      el: "body",
-      color: 0x1e40af,
-      shininess: 50,
-      waveHeight: 15,
-      waveSpeed: 0.5,
-      zoom: 1.0
+      el: "#hero",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.0,
+      minWidth: 200.0,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0x2563eb,      // change color to your preference
+      shininess: 50.0,
+      waveHeight: 25.0,     // higher = bigger waves
+      waveSpeed: 0.6,
+      zoom: 0.9,
+      THREE: THREE
     });
   </script>
-
 </body>
 </html>

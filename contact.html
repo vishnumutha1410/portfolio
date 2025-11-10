@@ -1,136 +1,59 @@
-:root {
-  --accent: #2b7be4;
-  --bg: #f8f9fb;
-  --text: #222;
-}
+<body>
+  <div id="hero">
+    <div class="content">
 
-* {
-  box-sizing: border-box;
-}
+      <header class="site-header">
+        <div class="container">
+          <h1>Contact</h1>
+          <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+          </nav>
+        </div>
+      </header>
 
-body {
-  font-family: 'Segoe UI', Inter, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  margin: 0;
-}
+      <main class="container">
+        <section id="contact">
+          <h2>Contact Me</h2>
+          <p>Want to collaborate or just say hi? Reach out below:</p>
+          <form action="https://formspree.io/f/xanawzqr" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn primary">Send Message</button>
+          </form>
+        </section>
+      </main>
 
-.container {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 20px;
-}
+      <footer class="site-footer">
+        <div class="container">
+          <p>© 2025 Vishnu Vardhan</p>
+        </div>
+      </footer>
 
-/* HEADER */
-.site-header {
-  background: #fff;
-  padding: 15px 0;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.08);
-}
+    </div>
+  </div>
 
-.site-header h1 {
-  margin: 0;
-}
-
-nav a {
-  margin-right: 15px;
-  text-decoration: none;
-  color: #555;
-}
-
-nav a:hover, nav a.active {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* MAIN SECTIONS */
-.intro {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 20px;
-  align-items: center;
-  margin-top: 25px;
-}
-
-.headshot {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.btn {
-  display: inline-block;
-  background: var(--accent);
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 6px;
-  text-decoration: none;
-  margin-top: 10px;
-}
-
-.project-card, .project {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.project-card img, .project img {
-  width: 100%;
-  border-radius: 8px;
-  margin-top: 10px;
-}
- <section id="contact">
-  <h2>Contact Me</h2>
-  <form action="https://formspree.io/f/xanawzqr" method="POST" class="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="_replyto" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-
-/* CONTACT FORM */
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-}
-
-.contact-form button {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.contact-form button:hover {
-  opacity: 0.9;
-}
-
-/* FOOTER */
-.site-footer {
-  text-align: center;
-  padding: 15px;
-  color: #555;
-  font-size: 14px;
-  background: #fff;
-  margin-top: 30px;
-}
-
-@media (max-width: 720px) {
-  .intro {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .headshot {
-    margin: 0 auto;
-  }
-}
+  <!-- Vanta.js Waves -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r150/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
+  <script>
+    VANTA.WAVES({
+      el: "#hero",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.0,
+      minWidth: 200.0,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0x2563eb,
+      shininess: 50.0,
+      waveHeight: 25.0,
+      waveSpeed: 0.6,
+      zoom: 0.9,
+      THREE: THREE
+    });
+  </script>
+</body>
