@@ -1,50 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Vishnu Vardhan</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
 <body>
-  <div id="hero">
-    <div class="content">
-      <header class="site-header">
-        <div class="container">
-          <h1>Contact</h1>
-          <nav>
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="about.html">About</a>
-            <a href="contact.html" class="active">Contact</a>
-          </nav>
-        </div>
-      </header>
-
-      <main class="container">
-        <section class="contact-section">
-          <h2>Let’s Connect</h2>
-          <p>Want to collaborate or just say hi? Reach out below:</p>
-          <ul>
-            <li><strong>Email:</strong> <a href="mailto:yourname@email.com">yourname@email.com</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></li>
-          </ul>
-
-          <form action="https://formspree.io/f/yourformid" method="POST" class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="email" placeholder="Your Email" required />
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn primary">Send Message</button>
-          </form>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <div class="container">
-          <p>© 2025 Vishnu Vardhan</p>
-        </div>
-      </footer>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">Vishnu<span>Vardhan</span></div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <!-- Vanta.js Waves Animation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r150/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
-  <script>
-    VANTA.WAVES({
-      el: "#hero",
-      mouseControls: true,
-      touchControls: true,
+  <section class="about-section">
+    <div class="about-card fade-up">
+      <h1>About Me</h1>
+      <p>
+        I’m <strong>Vishnu Vardhan</strong>, a passionate Data Analyst dedicated to making sense of numbers and transforming them into meaningful insights.
+        With a background in Information Technology and ongoing M.S. in Data Analytics at Webster University, I bring a balance of technical expertise and strategic thinking.
+      </p>
+      <p>
+        I specialize in Python, SQL, and visualization tools like Power BI and Tableau to turn raw data into clear narratives that empower decision-making.
+        My approach is focused on curiosity, accuracy, and storytelling through data.
+      </p>
+      <p>
+        My vision is to contribute to organizations where analytics drives innovation, efficiency, and measurable results.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Vishnu Vardhan — Building a data-driven future.</p>
+  </footer>
+</body>
+</html>

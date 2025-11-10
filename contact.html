@@ -1,59 +1,45 @@
-<body>
-  <div id="hero">
-    <div class="content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Vishnu Vardhan</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-      <header class="site-header">
-        <div class="container">
-          <h1>Contact</h1>
-          <nav>
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="about.html">About</a>
-            <a href="contact.html" class="active">Contact</a>
-          </nav>
-        </div>
-      </header>
-
-      <main class="container">
-        <section id="contact">
-          <h2>Contact Me</h2>
-          <p>Want to collaborate or just say hi? Reach out below:</p>
-          <form action="https://formspree.io/f/xanawzqr" method="POST" class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="_replyto" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn primary">Send Message</button>
-          </form>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <div class="container">
-          <p>© 2025 Vishnu Vardhan</p>
-        </div>
-      </footer>
-
+<body class="contact-body">
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">Vishnu<span>Vardhan</span></div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <!-- Vanta.js Waves -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r150/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
-  <script>
-    VANTA.WAVES({
-      el: "#hero",
-      mouseControls: true,
-      touchControls: true,
-      minHeight: 200.0,
-      minWidth: 200.0,
-      scale: 1.0,
-      scaleMobile: 1.0,
-      color: 0x2563eb,
-      shininess: 50.0,
-      waveHeight: 25.0,
-      waveSpeed: 0.6,
-      zoom: 0.9,
-      THREE: THREE
-    });
-  </script>
+  <section class="contact-section">
+    <div class="contact-card fade-up">
+      <h1>Let’s Connect</h1>
+      <p>Whether you’re interested in collaboration, hiring, or just want to talk data — feel free to reach out!</p>
+      <ul class="contact-info">
+        <li><strong>Email:</strong> <a href="mailto:vishnumutha1410@gmail.com">vishnumutha1410@gmail.com</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vishnu-vardhan-mutha-5187942b9/" target="_blank">linkedin.com/in/vishnu-vardhan-mutha</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/vishnumutha1410" target="_blank">github.com/vishnumutha1410</a></li>
+      </ul>
+
+      <form action="https://formspree.io/f/xanawzqr" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Vishnu Vardhan — Crafted with precision & creativity.</p>
+  </footer>
 </body>
+</html>

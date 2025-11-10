@@ -7,142 +7,96 @@
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-logo">Vishnu<span>Vardhan</span></div>
-    <ul class="nav-links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <header id="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h3 class="subtitle">Turning Data Into Decisions</h3>
-      <h1 class="title">Vishnu Vardhan</h1>
-      <p class="tagline">Data Analyst | SQL | Python | Power BI | Tableau | Snowflake</p>
-      <p class="hero-desc">
-        I help businesses grow by transforming complex datasets into actionable insights, 
-        visual stories, and measurable outcomes.
-      </p>
-      <div class="buttons">
-        <a href="#projects" class="btn primary">View My Projects</a>
-        <a href="#contact" class="btn secondary">Let’s Connect</a>
-      </div>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">Vishnu<span>Vardhan</span></div>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="#skills">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <!-- ABOUT -->
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero">
+    <img src="images/profile.png" alt="Vishnu Vardhan" class="hero-avatar">
+    <h1 class="title">Vishnu Vardhan</h1>
+    <p class="tagline">Data Analyst | Python · SQL · Power BI · Tableau · Snowflake</p>
+    <p class="hero-desc">
+      Turning complex data into meaningful insights and visual stories that empower businesses to make smarter, faster decisions.
+    </p>
+    <div class="hero-buttons">
+      <a href="projects.html" class="btn primary">View Projects</a>
+      <a href="contact.html" class="btn secondary">Hire Me</a>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION (SHORT INTRO) -->
   <section id="about" class="section fade-up">
     <h2>About Me</h2>
-    <p>
-      I’m <strong>Vishnu Vardhan</strong>, a data-driven professional who believes every number tells a story — 
-      if you know how to listen. I specialize in <strong>data analysis, visualization, and storytelling</strong> that bridges 
-      the gap between data and decision-making.
-    </p>
-    <p>
-      Currently pursuing my <strong>Master’s in Data Analytics at Webster University</strong>, I combine analytical thinking 
-      with creative presentation to turn raw data into meaningful insights that inspire confidence and drive action.
-    </p>
-    <p>
-      My approach? <strong>Understand. Analyze. Simplify. Visualize.</strong> Whether it’s building dashboards, optimizing data pipelines, 
-      or uncovering patterns, I strive to make every dataset a story that speaks.
-    </p>
+    <div class="about-summary">
+      <p>
+        I’m <strong>Vishnu Vardhan</strong>, a passionate <strong>Data Analyst</strong> with a strong foundation in
+        data analytics, visualization, and database systems. I love working with data that drives
+        real-world business outcomes and decision-making.
+      </p>
+      <p>
+        With hands-on experience in tools like <strong>Python, SQL, Power BI, Tableau, and Snowflake</strong>,
+        I focus on transforming raw data into actionable insights. My goal is to merge analytical thinking
+        with storytelling to reveal what data truly means for organizations.
+      </p>
+      <p>
+        Currently pursuing an <strong>MS in Data Analytics at Webster University</strong>, I’m on a mission to
+        build smarter, scalable, and insight-driven systems that make a measurable impact.
+      </p>
+    </div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills" class="section fade-up">
     <h2>Technical Expertise</h2>
-    <p>
-      My toolkit is a blend of data analytics, visualization, and database design — the perfect mix 
-      to convert business questions into data-backed answers.
-    </p>
     <div class="skills-grid">
-      <div class="skill-card"><h3>Python</h3><p>Data analysis, Pandas, NumPy, Matplotlib, Seaborn</p></div>
-      <div class="skill-card"><h3>SQL</h3><p>Data modeling, joins, optimization, and window functions</p></div>
-      <div class="skill-card"><h3>Power BI</h3><p>Interactive dashboards and DAX expressions</p></div>
-      <div class="skill-card"><h3>Tableau</h3><p>Storytelling with data through dynamic visualizations</p></div>
-      <div class="skill-card"><h3>Snowflake</h3><p>Cloud data warehousing and performance tuning</p></div>
-      <div class="skill-card"><h3>Excel</h3><p>Advanced formulas, pivot tables, KPI reporting</p></div>
+      <div class="skill-card"><h3>Python</h3><p>Pandas, NumPy, Matplotlib, Seaborn</p></div>
+      <div class="skill-card"><h3>SQL</h3><p>Advanced Joins, Window Functions, Optimization</p></div>
+      <div class="skill-card"><h3>Power BI</h3><p>DAX, Dashboards, Data Modeling</p></div>
+      <div class="skill-card"><h3>Tableau</h3><p>Storytelling, Interactive Visuals</p></div>
+      <div class="skill-card"><h3>Snowflake</h3><p>Data Warehousing, ETL Pipelines</p></div>
+      <div class="skill-card"><h3>Excel</h3><p>Pivots, Charts, VBA Automation</p></div>
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="section fade-up">
-    <h2>Highlighted Projects</h2>
-    <p>
-      Each project I build focuses on solving real-world challenges — using data to improve 
-      understanding, efficiency, and impact.
-    </p>
-
+    <h2>Featured Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
         <h3>🚗 Driver Drowsiness Detection</h3>
-        <p>
-          Developed a real-time CNN-based system that detects driver fatigue through facial recognition, 
-          improving safety measures for transport services.
-        </p>
-        <span class="tools">Tech: Python, OpenCV, TensorFlow</span>
+        <p>Developed a CNN-based model to monitor driver fatigue using OpenCV and TensorFlow for real-time safety alerts.</p>
       </div>
-
       <div class="project-card">
         <h3>📰 Fake News Detection</h3>
-        <p>
-          Built a machine learning classifier to detect misinformation in digital media using NLP and TF-IDF — 
-          achieving over 95% accuracy.
-        </p>
-        <span class="tools">Tech: Python, Scikit-learn, NLP</span>
+        <p>Built an NLP classification model to identify misinformation using TF-IDF and Logistic Regression, achieving 93% accuracy.</p>
       </div>
-
       <div class="project-card">
         <h3>📊 Sales Data Warehouse</h3>
-        <p>
-          Designed a star schema and ETL pipeline in PostgreSQL to enable advanced business reporting 
-          and performance trend analysis.
-        </p>
-        <span class="tools">Tech: PostgreSQL, SQL, ETL</span>
+        <p>Designed a data warehouse using a star schema and ETL pipelines in PostgreSQL for business analytics and reporting.</p>
       </div>
-
       <div class="project-card">
-        <h3>🏏 Visual Analysis of Indian Test Cricket</h3>
-        <p>
-          Created a Tableau dashboard that visualizes 90+ years of Indian cricket history — showcasing player 
-          performance, venue trends, and historical highlights.
-        </p>
-        <span class="tools">Tech: Tableau, Excel, Data Cleaning</span>
+        <h3>🏏 Cricket Data Visualization</h3>
+        <p>Created interactive dashboards in Tableau analyzing India’s Test Cricket history over 90+ years of data.</p>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section fade-up">
-    <h2>Get In Touch</h2>
-    <p>
-      Have a project, collaboration, or opportunity in mind? Let’s talk about how we can 
-      turn your data into something extraordinary.
-    </p>
-    <ul class="contact-list">
-      <li><strong>Email:</strong> <a href="mailto:vishnumutha1410@gmail.com">vishnumutha1410@gmail.com</a></li>
-      <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vishnu-vardhan-mutha-5187942b9/" target="_blank">linkedin.com/in/vishnu-vardhan-mutha</a></li>
-      <li><strong>GitHub:</strong> <a href="https://github.com/vishnumutha1410" target="_blank">github.com/vishnumutha1410</a></li>
-    </ul>
-
-    <form action="https://formspree.io/f/xanawzqr" method="POST" class="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="_replyto" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer class="site-footer">
-    <p>© 2025 Vishnu Vardhan — Designed with precision, powered by passion.</p>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Vishnu Vardhan — Built with precision & passion.</p>
   </footer>
 
   <script src="js/script.js"></script>
