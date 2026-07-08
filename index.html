@@ -3,400 +3,355 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Operator's Manual — VVM-100 Data Platform | Vishnu Vardhan Mutha, Data Engineer</title>
-<meta name="description" content="The operator's manual for the data platform of Vishnu Vardhan Mutha — Data Engineer, Austin TX. Live hourly ELT pipeline on Snowflake, dbt, Apache Airflow, Docker, GitHub Actions CI/CD." />
+<title>Vishnu | pipelines that run while he sleeps</title>
+<meta name="description" content="Vishnu Vardhan Mutha builds data pipelines that don't need babysitting. A live hourly ELT pipeline on Snowflake, dbt and Airflow — and the story of how he ended up upstream. Austin, TX." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Operator's Manual — VVM-100 Data Platform" />
-<meta property="og:description" content="Data Engineer, Austin TX. Systems in operation: a live hourly ELT pipeline — REST APIs → Snowflake → dbt → 8 automated tests." />
+<meta property="og:title" content="Vishnu | pipelines that run while he sleeps" />
+<meta property="og:description" content="Data Engineer, Austin TX. One live pipeline, 24 runs a day, 8 tests a run, zero babysitting." />
 <meta property="og:url" content="https://vishnumutha1410.github.io/portfolio/" />
-<meta name="theme-color" content="#EFECE2" />
+<meta name="theme-color" content="#F5F3EC" />
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Vishnu Vardhan Mutha",
-  "jobTitle": "Data Engineer",
-  "email": "mailto:vishnumutha1410@gmail.com",
-  "url": "https://vishnumutha1410.github.io/portfolio/",
-  "sameAs": ["https://github.com/vishnumutha1410","https://www.linkedin.com/in/vishnu-vardhan-mutha-5187942b9/"],
-  "knowsAbout": ["Data Engineering","ELT Pipelines","Snowflake","dbt","Apache Airflow","Python","SQL","Docker","CI/CD"],
-  "alumniOf": "Webster University"
+  "@context":"https://schema.org","@type":"Person","name":"Vishnu Vardhan Mutha",
+  "jobTitle":"Data Engineer","email":"mailto:vishnumutha1410@gmail.com",
+  "url":"https://vishnumutha1410.github.io/portfolio/",
+  "sameAs":["https://github.com/vishnumutha1410","https://www.linkedin.com/in/vishnu-vardhan-mutha-5187942b9/"],
+  "knowsAbout":["Data Engineering","ELT","Snowflake","dbt","Apache Airflow","Python","SQL","Docker","CI/CD"],
+  "alumniOf":"Webster University"
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#EFECE2;
-    --paper-2:#E7E3D6;
-    --ink:#1F2A44;          /* navy print ink */
-    --ink-soft:#4A5470;
-    --ink-faint:#8B90A0;
-    --red:#C8372D;          /* second print ink */
-    --pencil:#6E6E66;
-    --rule:#1F2A44;
-    --sans:'Archivo',system-ui,sans-serif;
-    --type:'Courier Prime',ui-monospace,monospace;
-    --hand:'Caveat',cursive;
-    --maxw:920px;
+    --bone:#F5F3EC;
+    --bone-2:#ECE9DF;
+    --pine:#16281F;
+    --pine-mid:#1F6F54;
+    --pine-soft:#4E6157;
+    --tang:#FF5A2A;
+    --line:rgba(22,40,31,.16);
+    --sans:'Bricolage Grotesque',system-ui,sans-serif;
+    --mono:'Spline Sans Mono',ui-monospace,monospace;
+    --maxw:1040px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;scroll-padding-top:24px}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--sans);
-    font-size:16px;line-height:1.62;
-    -webkit-font-smoothing:antialiased;
-  }
-  /* faint paper grain */
-  body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;z-index:0;
-    background-image:radial-gradient(rgba(31,42,68,.045) 1px, transparent 1px);
-    background-size:5px 5px}
-  .page{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 26px}
-  a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
-  a:hover{color:var(--red)}
-  ::selection{background:var(--ink);color:var(--paper)}
-  :focus-visible{outline:2px solid var(--red);outline-offset:3px}
-  .skip{position:absolute;left:-999px;top:8px;z-index:99;background:var(--red);color:var(--paper);padding:8px 14px;text-decoration:none}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{background:var(--bone);color:var(--pine);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--tang);color:var(--bone)}
+  a{color:inherit;text-decoration:none}
+  .u{text-decoration:underline;text-decoration-color:var(--tang);text-decoration-thickness:2px;text-underline-offset:4px}
+  .u:hover{color:var(--tang)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+  :focus-visible{outline:2.5px solid var(--tang);outline-offset:3px;border-radius:3px}
+  .skip{position:absolute;left:-999px;top:8px;z-index:99;background:var(--tang);color:var(--bone);padding:8px 14px;border-radius:8px}
   .skip:focus{left:8px}
-  .type{font-family:var(--type)}
-  .red{color:var(--red)}
 
-  /* ================= COVER ================= */
-  .cover{border-bottom:3px double var(--rule);padding:54px 0 40px;position:relative}
-  .doc-strip{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
-    font-family:var(--type);font-size:12.5px;color:var(--ink-soft);letter-spacing:.4px;
-    border:1.5px solid var(--rule);padding:8px 14px;margin-bottom:44px}
-  .cover .kicker{font-family:var(--type);font-size:14px;letter-spacing:4px;color:var(--red);margin-bottom:14px}
-  h1{font-weight:900;font-size:clamp(38px,7vw,72px);line-height:.98;letter-spacing:-1.5px;text-transform:uppercase}
-  h1 .thin{font-weight:400;display:block;font-size:.42em;letter-spacing:1px;text-transform:none;margin-top:14px;color:var(--ink-soft)}
-  .cover-meta{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border:1.5px solid var(--rule)}
-  .cm{padding:10px 14px;border-right:1.5px solid var(--rule)}
-  .cm:last-child{border-right:none}
-  .cm .k{font-family:var(--type);font-size:10.5px;letter-spacing:1.5px;color:var(--ink-faint);text-transform:uppercase}
-  .cm .v{font-size:14.5px;font-weight:500}
-  @media(max-width:640px){.cm{border-right:none;border-bottom:1.5px solid var(--rule)}.cm:last-child{border-bottom:none}}
+  /* ---------- top bar ---------- */
+  .bar{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(245,243,236,.85);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--line)}
+  .bar-in{display:flex;align-items:center;justify-content:space-between;height:60px;font-family:var(--mono);font-size:13px}
+  .bar .who b{font-weight:600}
+  .nextrun{display:flex;align-items:center;gap:8px;color:var(--pine-soft)}
+  .nextrun .pip{width:8px;height:8px;border-radius:50%;background:var(--pine-mid);animation:pulse 2s infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  .bar .fast{color:var(--pine-soft)}
+  .bar .fast a{color:var(--pine)}
+  @media(max-width:720px){.bar .fast{display:none}}
 
-  .stamp{
-    position:absolute;right:8px;top:130px;transform:rotate(7deg);
-    font-family:var(--type);font-weight:700;font-size:15px;letter-spacing:2px;color:var(--red);
-    border:3px solid var(--red);border-radius:6px;padding:8px 16px;text-transform:uppercase;
-    opacity:.85;mix-blend-mode:multiply;pointer-events:none;
-    mask-image:radial-gradient(rgba(0,0,0,.96) 60%, rgba(0,0,0,.75));
-  }
-  .stamp small{display:block;font-size:9.5px;letter-spacing:1px;font-weight:400}
-  @media(max-width:760px){.stamp{position:static;display:inline-block;margin-top:26px;transform:rotate(-3deg)}}
+  /* ---------- hero ---------- */
+  .hero{padding:150px 0 40px}
+  .hero .hi{font-family:var(--mono);font-size:14px;color:var(--pine-mid);margin-bottom:18px}
+  h1{font-size:clamp(44px,8.4vw,104px);font-weight:800;line-height:.98;letter-spacing:-2.5px}
+  h1 .accent{color:var(--tang);font-style:italic;font-weight:700}
+  .hero p.sub{max-width:560px;margin-top:26px;font-size:clamp(16px,2vw,19px);color:var(--pine-soft)}
+  .hero p.sub b{color:var(--pine);font-weight:700}
+  .hero-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:38px}
+  .hs .n{font-family:var(--mono);font-weight:600;font-size:26px;color:var(--pine)}
+  .hs .n em{color:var(--tang);font-style:normal}
+  .hs .l{font-family:var(--mono);font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--pine-soft)}
 
-  /* ================= TOC ================= */
-  .toc{padding:40px 0 10px}
-  .toc h2{font-family:var(--type);font-size:13px;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
-  .toc ol{list-style:none;max-width:620px}
-  .toc li{margin-bottom:6px}
-  .toc a{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-size:16.5px}
-  .toc a:hover .tt{color:var(--red)}
-  .toc .num{font-family:var(--type);font-size:13px;color:var(--red);min-width:26px}
-  .toc .tt{font-weight:500}
-  .toc .dots{flex:1;border-bottom:2px dotted var(--ink-faint);transform:translateY(-4px)}
-  .toc .pg{font-family:var(--type);font-size:13px;color:var(--ink-soft)}
+  /* ---------- menu ---------- */
+  .menu{margin:56px 0 12px;border-top:1.5px solid var(--pine)}
+  .menu a{display:flex;align-items:baseline;gap:18px;padding:17px 4px;border-bottom:1.5px solid var(--line);transition:padding-left .2s}
+  .menu a:hover{padding-left:16px;background:linear-gradient(90deg,rgba(255,90,42,.07),transparent 60%)}
+  .menu .no{font-family:var(--mono);font-size:13px;color:var(--tang)}
+  .menu .t{font-weight:700;font-size:clamp(19px,2.6vw,24px);letter-spacing:-.4px}
+  .menu .d{color:var(--pine-soft);font-size:14.5px;margin-left:auto;text-align:right}
+  @media(max-width:640px){.menu .d{display:none}}
+  .menu-note{font-family:var(--mono);font-size:12.5px;color:var(--pine-soft);margin-top:12px}
 
-  /* ================= SECTIONS ================= */
-  section{padding:52px 0 8px}
-  .sec-rule{border:none;border-top:2.5px solid var(--rule);margin-top:44px}
-  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
-  .sec-no{font-family:var(--type);font-size:15px;color:var(--red);font-weight:700}
-  h2.sec-title{font-size:clamp(24px,3.4vw,32px);font-weight:900;text-transform:uppercase;letter-spacing:-.3px}
-  .sec-intro{color:var(--ink-soft);max-width:640px;margin:6px 0 30px}
-  h3.sub{font-family:var(--type);font-weight:700;font-size:15px;margin:34px 0 10px}
-  h3.sub .no{color:var(--red)}
-  p{margin-bottom:14px}
-  .body-note{color:var(--ink-soft)}
-  strong{font-weight:700}
+  /* ---------- marquee ---------- */
+  .tape{overflow:hidden;border-top:1.5px solid var(--pine);border-bottom:1.5px solid var(--pine);background:var(--pine);color:var(--bone);margin-top:70px}
+  .tape-in{display:flex;gap:0;white-space:nowrap;font-family:var(--mono);font-size:13px;padding:9px 0;animation:roll 28s linear infinite;width:max-content}
+  .tape span{padding:0 26px}
+  .tape .ok{color:#7BE3B4}
+  @keyframes roll{to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.tape-in{animation:none}.nextrun .pip{animation:none}}
 
-  /* figure frames */
-  .figure{border:1.5px solid var(--rule);margin:22px 0 8px;background:var(--paper)}
-  .figure svg{width:100%;height:auto}
-  .figcap{font-family:var(--type);font-size:12.5px;color:var(--ink-soft);padding:8px 2px 26px}
-  .figcap b{color:var(--ink);font-weight:700}
+  /* ---------- sections ---------- */
+  section{padding:84px 0 10px}
+  .kick{font-family:var(--mono);font-size:13px;color:var(--tang);margin-bottom:14px}
+  h2{font-size:clamp(30px,4.6vw,52px);font-weight:800;letter-spacing:-1.4px;line-height:1.04;max-width:820px}
+  .lede{color:var(--pine-soft);max-width:640px;margin-top:18px;font-size:17.5px}
+  .lede b,.story b{color:var(--pine);font-weight:700}
 
-  /* pencil margin note */
-  .pencil{font-family:var(--hand);font-size:20px;color:var(--pencil);transform:rotate(-2deg);display:inline-block;line-height:1.2}
+  /* about */
+  .story{margin-top:30px;display:grid;grid-template-columns:1.5fr 1fr;gap:44px}
+  @media(max-width:820px){.story{grid-template-columns:1fr}}
+  .story p{color:var(--pine-soft);margin-bottom:16px}
+  .aside{border-left:3px solid var(--tang);padding:6px 0 6px 20px;align-self:start}
+  .aside .row{font-family:var(--mono);font-size:13.5px;padding:7px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:14px}
+  .aside .row:last-child{border-bottom:none}
+  .aside .k{color:var(--pine-soft)}
+  .aside .v{font-weight:600;text-align:right}
 
-  /* spec tables */
-  table{width:100%;border-collapse:collapse;margin:16px 0 6px;font-size:14.5px}
-  th,td{border:1.5px solid var(--rule);padding:8px 12px;text-align:left;vertical-align:top}
-  th{font-family:var(--type);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;background:var(--paper-2);font-weight:700}
-  td .type{font-size:13.5px}
-  .pass{font-family:var(--type);font-weight:700;color:var(--red);white-space:nowrap}
+  /* best work */
+  .case{margin-top:40px;border:2px solid var(--pine);border-radius:18px;overflow:hidden;background:var(--bone)}
+  .case-head{background:var(--pine);color:var(--bone);padding:22px 26px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline}
+  .case-head h3{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.6px}
+  .case-head .live{font-family:var(--mono);font-size:12.5px;color:#7BE3B4}
+  .case-body{padding:28px 26px 30px}
+  .ph{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--tang);margin:26px 0 10px}
+  .ph:first-child{margin-top:0}
+  .case-body>p{color:var(--pine-soft);max-width:700px}
+  ol.plan{list-style:none;counter-reset:st;max-width:720px}
+  ol.plan li{counter-increment:st;padding:13px 0 13px 52px;position:relative;border-bottom:1px dashed var(--line);color:var(--pine-soft)}
+  ol.plan li::before{content:"0" counter(st);position:absolute;left:0;top:13px;font-family:var(--mono);font-size:13px;color:var(--tang);font-weight:600}
+  ol.plan b{color:var(--pine)}
+  .receipts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:8px}
+  .rc{border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--bone-2)}
+  .rc .n{font-family:var(--mono);font-weight:600;font-size:22px}
+  .rc .n em{color:var(--tang);font-style:normal}
+  .rc .l{font-size:12px;color:var(--pine-soft);line-height:1.4}
+  .case-links{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{font-family:var(--mono);font-size:13.5px;border:1.5px solid var(--pine);border-radius:999px;padding:10px 20px;transition:all .15s;display:inline-block}
+  .btn:hover{background:var(--pine);color:var(--bone)}
+  .btn.hot{background:var(--tang);border-color:var(--tang);color:var(--bone);font-weight:600}
+  .btn.hot:hover{background:#e64a1d;border-color:#e64a1d}
 
-  /* decision list */
-  ul.spec{list-style:none;margin:8px 0 16px}
-  ul.spec li{padding-left:22px;position:relative;margin-bottom:9px;color:var(--ink-soft)}
-  ul.spec li::before{content:"▸";position:absolute;left:2px;color:var(--red)}
-  ul.spec b{color:var(--ink)}
+  /* reps */
+  .rep{border-bottom:1.5px solid var(--line);padding:30px 0}
+  .rep:first-of-type{border-top:1.5px solid var(--pine);margin-top:36px}
+  .rep-top{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .rep-top .no{font-family:var(--mono);font-size:13px;color:var(--tang)}
+  .rep-top h3{font-size:clamp(20px,2.8vw,26px);font-weight:800;letter-spacing:-.5px}
+  .rep-top .st{font-family:var(--mono);font-size:12px;color:var(--pine-soft);margin-left:auto}
+  .rep p{color:var(--pine-soft);max-width:700px;margin-top:8px}
+  .rep .facts{font-family:var(--mono);font-size:12.5px;color:var(--pine-mid);margin-top:10px}
+  .rep .facts a{color:var(--pine);text-decoration:underline;text-decoration-color:var(--tang);text-underline-offset:3px}
 
-  /* operating log — typewritten */
-  .oplog{font-family:var(--type);font-size:13px;border:1.5px solid var(--rule);background:var(--paper-2);
-    padding:14px 18px;line-height:1.9;overflow-x:auto;white-space:pre}
-  .oplog .h{font-weight:700}
+  /* paperwork */
+  .paper-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:34px}
+  @media(max-width:760px){.paper-grid{grid-template-columns:1fr}}
+  .pcard h3{font-family:var(--mono);font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--tang);margin-bottom:14px}
+  .pline{padding:12px 0;border-bottom:1px dashed var(--line)}
+  .pline b{font-weight:700}
+  .pline .m{font-family:var(--mono);font-size:12.5px;color:var(--pine-soft);display:block}
 
-  .caution{border:2.5px solid var(--red);padding:12px 16px;margin:18px 0;display:flex;gap:12px;align-items:baseline}
-  .caution .w{font-family:var(--type);font-weight:700;color:var(--red);letter-spacing:2px;font-size:13px;white-space:nowrap}
-  .caution p{margin:0;color:var(--ink-soft);font-size:14.5px}
+  /* contact */
+  .contact{padding:90px 0 70px}
+  .contact h2{max-width:900px}
+  .c-links{margin-top:34px;border-top:1.5px solid var(--pine)}
+  .c-links a{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:16px 4px;border-bottom:1.5px solid var(--line);font-weight:700;font-size:clamp(17px,2.4vw,21px);transition:padding-left .2s}
+  .c-links a:hover{padding-left:16px;color:var(--tang)}
+  .c-links .h{font-family:var(--mono);font-size:13px;font-weight:400;color:var(--pine-soft)}
+  .sign{margin-top:44px;color:var(--pine-soft);font-size:15.5px}
 
-  .gh-link{font-family:var(--type);font-size:13.5px}
+  footer{border-top:1.5px solid var(--line);padding:22px 0 40px;font-family:var(--mono);font-size:12px;color:var(--pine-soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-  /* maintenance record */
-  .maint td:first-child{font-family:var(--type);white-space:nowrap;font-size:13px}
-  .vstamp{font-family:var(--type);font-weight:700;font-size:11px;letter-spacing:1px;color:var(--red);
-    border:2px solid var(--red);border-radius:4px;padding:1px 8px;display:inline-block;transform:rotate(-2deg)}
-
-  /* contact / ordering */
-  .order{border:2.5px solid var(--rule);padding:30px 28px;margin:26px 0 10px;position:relative}
-  .order h3{font-family:var(--type);font-size:13px;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
-  .order-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px 26px;font-size:15.5px}
-  .order .k{font-family:var(--type);font-size:11px;letter-spacing:1.5px;color:var(--ink-faint);text-transform:uppercase;display:block}
-
-  footer{border-top:3px double var(--rule);margin-top:56px;padding:22px 0 46px;
-    font-family:var(--type);font-size:12px;color:var(--ink-soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-
-  @media print{
-    body::before{display:none}
-    .stamp{position:absolute}
-    a{color:var(--ink)}
-  }
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
-<a class="skip" href="#sec2">Skip to systems</a>
-<div class="page">
+<a class="skip" href="#best">Skip to best work</a>
 
-<!-- ================= COVER ================= -->
-<header class="cover" id="top">
-  <div class="doc-strip">
-    <span>DOC NO. VVM-DE-001</span>
-    <span>REV. 4.0 — 2026</span>
-    <span>AUSTIN, TEXAS, USA</span>
-    <span>PAGE 1 OF 1 (SCROLLS)</span>
+<div class="bar">
+  <div class="wrap bar-in">
+    <span class="who"><b>vishnu vardhan mutha</b> · data engineer</span>
+    <span class="nextrun mono"><span class="pip"></span>next pipeline run in <span id="mins">–</span> min</span>
+    <span class="fast">fastest route: <a class="u" href="#best">best work</a> → <a class="u" href="#contact">contact</a></span>
   </div>
-  <div class="kicker">OPERATOR'S MANUAL</div>
-  <h1>VVM-100<br>Data Platform
-    <span class="thin">Prepared and maintained by Vishnu Vardhan Mutha, Data Engineer</span>
-  </h1>
-  <div class="stamp" aria-hidden="true">Open to work<small>data engineer · usa · 2026</small></div>
-  <div class="cover-meta">
-    <div class="cm"><span class="k">Operator</span><div class="v">V. V. Mutha</div></div>
-    <div class="cm"><span class="k">Classification</span><div class="v">Data Engineering</div></div>
-    <div class="cm"><span class="k">Primary system</span><div class="v">Hourly ELT pipeline — live</div></div>
-    <div class="cm"><span class="k">Contact</span><div class="v"><a href="mailto:vishnumutha1410@gmail.com">vishnumutha1410@gmail.com</a></div></div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="hi">// austin, tx · webster '26 · open to data engineer roles</p>
+    <h1>my code ran <span class="accent">24 times</span> today.<br>i checked on it once.</h1>
+    <p class="sub">I'm a <b>data engineer</b>. I build the boring, load-bearing part of data — pipelines that ingest, transform, test, and ship on a schedule, <b>with nobody watching</b>. Dashboards get the applause. Pipelines get the pager. I chose the pager.</p>
+    <div class="hero-stats">
+      <div class="hs"><div class="n">1</div><div class="l">live pipeline, hourly</div></div>
+      <div class="hs"><div class="n">8<em>/8</em></div><div class="l">tests, every single run</div></div>
+      <div class="hs"><div class="n">0</div><div class="l">babysitting required</div></div>
+    </div>
+
+    <nav class="menu" aria-label="Sections">
+      <a href="#lore"><span class="no">01</span><span class="t">how i ended up upstream</span><span class="d">the origin story, short version</span></a>
+      <a href="#best"><span class="no">02</span><span class="t">the one that runs itself</span><span class="d">problem → build → receipts</span></a>
+      <a href="#reps"><span class="no">03</span><span class="t">the reps</span><span class="d">the projects that built the muscle</span></a>
+      <a href="#paperwork"><span class="no">04</span><span class="t">the official stuff</span><span class="d">education &amp; certifications</span></a>
+      <a href="#contact"><span class="no">05</span><span class="t">say hi</span><span class="d">replies faster than a DAG retry</span></a>
+      <a href="resume.pdf" target="_blank" rel="noopener"><span class="no">↓</span><span class="t">resume, the pdf</span><span class="d">for the recruiters in a hurry</span></a>
+    </nav>
+    <p class="menu-note">(pick whichever you're curious about — it'll take you there)</p>
   </div>
 </header>
 
-<!-- ================= TOC ================= -->
-<nav class="toc" aria-label="Table of contents">
-  <h2>Table of contents</h2>
-  <ol>
-    <li><a href="#sec1"><span class="num">1</span><span class="tt">General description</span><span class="dots"></span><span class="pg">FIG. 1</span></a></li>
-    <li><a href="#sec2"><span class="num">2</span><span class="tt">Systems in operation</span><span class="dots"></span><span class="pg">2.1–2.4</span></a></li>
-    <li><a href="#sec3"><span class="num">3</span><span class="tt">Specifications</span><span class="dots"></span><span class="pg">TABLE 3-1</span></a></li>
-    <li><a href="#sec4"><span class="num">4</span><span class="tt">Maintenance &amp; certification record</span><span class="dots"></span><span class="pg">TABLE 4-1</span></a></li>
-    <li><a href="#sec5"><span class="num">5</span><span class="tt">Ordering information</span><span class="dots"></span><span class="pg">CONTACT</span></a></li>
-    <li><a href="resume.pdf" target="_blank" rel="noopener"><span class="num">A</span><span class="tt">Appendix A — Résumé</span><span class="dots"></span><span class="pg">PDF ↓</span></a></li>
-    <li><a href="https://github.com/vishnumutha1410" target="_blank" rel="noopener"><span class="num">B</span><span class="tt">Appendix B — Source code</span><span class="dots"></span><span class="pg">GITHUB ↗</span></a></li>
-  </ol>
-</nav>
-
-<hr class="sec-rule">
-
-<!-- ================= SECTION 1 ================= -->
-<section id="sec1">
-  <div class="sec-head"><span class="sec-no">1</span><h2 class="sec-title">General description</h2></div>
-  <p class="sec-intro">This manual documents the working systems of one data engineer. Everything described here exists, runs, and can be inspected at the source.</p>
-
-  <p>The operator began on the analysis side and kept finding the same fault: every chart anyone trusted depended on unglamorous work upstream — reliable ingestion, sound models, tested data. He therefore moved upstream and built the whole path himself. The primary system (Section 2.1) has run on an hourly schedule since commissioning, held to production standards: <strong>version control, automated tests, continuous integration, containers, and a scheduler</strong> — not a notebook that runs once.</p>
-  <p class="body-note">The operator is completing an M.S. in Data Analytics at Webster University, USA (B.Tech, Computer Science, 2023), is stationed in the Austin, TX metro, and is available for Data Engineer roles anywhere in the USA.</p>
-
-  <div class="figure" role="img" aria-label="Figure 1: system diagram — Open-Meteo API feeds a Snowflake RAW schema, dbt builds staging and mart models, eight automated tests verify every run, consumers read the marts">
-    <svg viewBox="0 0 880 250" xmlns="http://www.w3.org/2000/svg" font-family="Courier Prime, monospace">
-      <!-- flow line -->
-      <path d="M150 105 H235 M395 105 H480 M640 105 H700" stroke="#1F2A44" stroke-width="2" fill="none" marker-end="url(#arr)"/>
-      <defs>
-        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M0 0 L10 5 L0 10 z" fill="#1F2A44"/>
-        </marker>
-      </defs>
-      <path d="M150 105 H240" stroke="#1F2A44" stroke-width="2" marker-end="url(#arr)"/>
-      <path d="M395 105 H485" stroke="#1F2A44" stroke-width="2" marker-end="url(#arr)"/>
-      <path d="M640 105 H730" stroke="#1F2A44" stroke-width="2" marker-end="url(#arr)"/>
-
-      <!-- boxes -->
-      <g stroke="#1F2A44" stroke-width="2" fill="#EFECE2">
-        <rect x="30" y="75" width="120" height="60"/>
-        <rect x="245" y="75" width="150" height="60"/>
-        <rect x="490" y="75" width="150" height="60"/>
-        <rect x="735" y="60" width="120" height="90" stroke-dasharray="5 4"/>
-      </g>
-      <g fill="#1F2A44" font-size="13" font-weight="700">
-        <text x="45" y="101">OPEN-METEO</text>
-        <text x="45" y="118">REST API</text>
-        <text x="262" y="101">SNOWFLAKE</text>
-        <text x="262" y="118">RAW SCHEMA</text>
-        <text x="507" y="101">DBT MODELS</text>
-        <text x="507" y="118" font-weight="400" font-size="11">staging → marts</text>
-        <text x="752" y="93">CONSUMERS</text>
-        <text x="752" y="110" font-weight="400" font-size="11">risk scores ·</text>
-        <text x="752" y="126" font-weight="400" font-size="11">PM2.5 bands</text>
-      </g>
-
-      <!-- verification loop -->
-      <path d="M565 135 V178 H320 V135" stroke="#C8372D" stroke-width="2" fill="none" stroke-dasharray="6 4" marker-end="url(#arrR)"/>
-      <defs>
-        <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M0 0 L10 5 L0 10 z" fill="#C8372D"/>
-        </marker>
-      </defs>
-      <text x="352" y="172" fill="#C8372D" font-size="12" font-weight="700">8 AUTOMATED TESTS — EVERY RUN, EVERY PUSH</text>
-
-      <!-- schedule dimension -->
-      <path d="M30 45 H150" stroke="#1F2A44" stroke-width="1.2" marker-start="url(#arr)" marker-end="url(#arr)"/>
-      <text x="52" y="38" fill="#1F2A44" font-size="11">EVERY 60 MIN</text>
-
-      <!-- callout balloons -->
-      <g font-size="12" font-weight="700">
-        <circle cx="90" cy="215" r="11" fill="none" stroke="#1F2A44" stroke-width="1.8"/><text x="86.5" y="219" fill="#1F2A44">1</text>
-        <text x="108" y="219" fill="#4A5470" font-weight="400">INGEST — Python, hourly, 6 US cities</text>
-        <circle cx="420" cy="215" r="11" fill="none" stroke="#1F2A44" stroke-width="1.8"/><text x="416.5" y="219" fill="#1F2A44">2</text>
-        <text x="438" y="219" fill="#4A5470" font-weight="400">ORCHESTRATION — Airflow · Docker · CI</text>
-      </g>
-    </svg>
+<div class="tape" aria-hidden="true">
+  <div class="tape-in">
+    <span>[06:00] ingest 6 cities <b class="ok">ok</b></span><span>load snowflake.raw <b class="ok">ok</b></span><span>dbt run 3 models <b class="ok">ok</b></span><span>dbt test <b class="ok">8 passed</b> 0 failed</span><span>dag success · next run 07:00</span><span>[06:00] ingest 6 cities <b class="ok">ok</b></span><span>load snowflake.raw <b class="ok">ok</b></span><span>dbt run 3 models <b class="ok">ok</b></span><span>dbt test <b class="ok">8 passed</b> 0 failed</span><span>dag success · next run 07:00</span>
   </div>
-  <div class="figcap"><b>FIG. 1</b> — VVM-100 primary system diagram. Orchestrated by Apache Airflow (ingest → dbt run → dbt test); containerized with Docker; dbt test suite executed by GitHub Actions on every push. <span class="pencil" style="margin-left:10px">it really runs every hour — see §2.1 ↓</span></div>
-</section>
+</div>
 
-<hr class="sec-rule">
-
-<!-- ================= SECTION 2 ================= -->
-<section id="sec2">
-  <div class="sec-head"><span class="sec-no">2</span><h2 class="sec-title">Systems in operation</h2></div>
-  <p class="sec-intro">Each system is listed with its operating condition, the engineering decisions behind it, and the trade-offs the operator would defend in review.</p>
-
-  <h3 class="sub"><span class="no">2.1</span> WILDFIRE-RISK-PIPELINE — <span class="red">IN SERVICE, HOURLY</span></h3>
-  <table>
-    <caption class="figcap" style="text-align:left;caption-side:bottom"><b>TABLE 2-1</b> — Operating condition, system 2.1</caption>
-    <tr><th>Function</th><th>Schedule</th><th>Verification</th><th>Coverage</th><th>Source</th></tr>
-    <tr>
-      <td>ELT: live weather &amp; air-quality → fire-risk scores (0–100) and WHO/EPA PM2.5 bands</td>
-      <td class="type">@hourly</td>
-      <td><span class="pass">8/8 TESTS PASS</span></td>
-      <td>6 US cities</td>
-      <td class="gh-link"><a href="https://github.com/vishnumutha1410/wildfire-risk-pipeline" target="_blank" rel="noopener">github ↗</a></td>
-    </tr>
-  </table>
-
-  <p><strong>Design decisions.</strong></p>
-  <ul class="spec">
-    <li><b>ELT over ETL.</b> Raw data lands immutable in Snowflake; every transformation is version-controlled SQL in the warehouse, so any output is reproducible from source.</li>
-    <li><b>Staging → mart layers in dbt.</b> Upstream API changes are absorbed in one staging model instead of breaking every downstream table.</li>
-    <li><b>Hard DAG ordering in Airflow.</b> Ingest → dbt run → dbt test; transformations never execute against a failed load.</li>
-    <li><b>CI as a gate.</b> GitHub Actions runs the dbt test suite on every push; broken SQL cannot reach the warehouse.</li>
-  </ul>
-
-  <p><strong>Trade-offs accepted.</strong></p>
-  <ul class="spec">
-    <li>Hourly batch rather than streaming — matches the source's update cadence at a fraction of the complexity and cost.</li>
-    <li>Snowflake rather than self-hosted Postgres — paid for elasticity and zero ops instead of tuning a box.</li>
-    <li>Eight targeted dbt tests rather than a heavier validation framework — checks that run in seconds beat a tool nobody maintains.</li>
-  </ul>
-
-  <div class="oplog" role="img" aria-label="Operating log: ingest, load, dbt run and all eight tests passing"><span class="h">OPERATING LOG — MOST RECENT CYCLE</span>
-[06:00:01]  INGEST    fetch 6 cities .......... OK
-[06:00:04]  LOAD      snowflake.raw ........... OK
-[06:00:09]  DBT RUN   3 models built .......... OK
-[06:00:13]  DBT TEST  8 passed, 0 failed ...... OK
-[06:00:13]  DAG SUCCESS — next cycle 07:00</div>
-  <div class="figcap"><b>NOTE</b> — From live data, the system flagged Denver and Phoenix as Extreme fire risk (79.7 and 79.3 of 100).</div>
-
-  <h3 class="sub"><span class="no">2.2</span> IPL-ANALYSIS — COMPLETE</h3>
-  <p class="body-note">Exploratory analysis across 13 cricket seasons: 180,000+ ball-by-ball records from two joined CSVs. Both datasets were profiled and key mismatches resolved <em>before</em> aggregation — the interesting bugs in analytics are almost always upstream of the chart. Delivered three ways for reproducibility: standalone script, notebook, documented README. <span class="type">Python · Pandas · Matplotlib · Seaborn</span> — <a class="gh-link" href="https://github.com/vishnumutha1410/ipl-analysis" target="_blank" rel="noopener">github ↗</a></p>
-
-  <h3 class="sub"><span class="no">2.3</span> NETFLIX-ANALYSIS — COMPLETE</h3>
-  <p class="body-note">End-to-end analysis of 8,800+ catalog titles, 2008–2021: growth, genre distribution, ratings mix (TV-MA measured at 36% of all titles). Modular script with publication-ready charts. <span class="type">Python · Pandas · Jupyter</span> — <a class="gh-link" href="https://github.com/vishnumutha1410/netflix-analysis" target="_blank" rel="noopener">github ↗</a></p>
-
-  <h3 class="sub"><span class="no">2.4</span> FAKE-NEWS-NLP — RETIRED FROM SERVICE, 2023</h3>
-  <p class="body-note">Supervised text classification of news articles — tokenization, TF-IDF vectorization, several models compared to balance precision and recall. <span class="type">Python · Scikit-learn</span></p>
-
-  <div class="caution">
-    <span class="w">CAUTION</span>
-    <p>Do not operate dashboards without a tested pipeline behind them. Untested data will void the warranty of any decision made with it.</p>
-  </div>
-</section>
-
-<hr class="sec-rule">
-
-<!-- ================= SECTION 3 ================= -->
-<section id="sec3">
-  <div class="sec-head"><span class="sec-no">3</span><h2 class="sec-title">Specifications</h2></div>
-  <p class="sec-intro">Tooling is listed by its position in the flow of data — where each part fits, not how shiny it is.</p>
-  <table>
-    <caption class="figcap" style="text-align:left;caption-side:bottom"><b>TABLE 3-1</b> — Approved components, by layer. Also in the toolbox: Java, Scikit-learn, TensorFlow/Keras, Linux (basic).</caption>
-    <tr><th style="width:170px">Layer</th><th>Components</th></tr>
-    <tr><td class="type"><b>INGEST</b></td><td>Python · REST APIs · Pandas · NumPy</td></tr>
-    <tr><td class="type"><b>STORE</b></td><td>Snowflake · PostgreSQL · AWS · BigQuery <span class="body-note">(familiar)</span></td></tr>
-    <tr><td class="type"><b>TRANSFORM</b></td><td>dbt · SQL · PySpark · star-schema / dimensional modeling</td></tr>
-    <tr><td class="type"><b>ORCHESTRATE</b></td><td>Apache Airflow · Docker · GitHub Actions (CI/CD) · Git</td></tr>
-    <tr><td class="type"><b>VERIFY</b></td><td>dbt data-quality tests · data profiling</td></tr>
-    <tr><td class="type"><b>SERVE</b></td><td>FastAPI · Power BI · Tableau</td></tr>
-  </table>
-</section>
-
-<hr class="sec-rule">
-
-<!-- ================= SECTION 4 ================= -->
-<section id="sec4">
-  <div class="sec-head"><span class="sec-no">4</span><h2 class="sec-title">Maintenance &amp; certification record</h2></div>
-  <p class="sec-intro">Education, credentials, and shipped work — entered in the log as performed.</p>
-  <table class="maint">
-    <caption class="figcap" style="text-align:left;caption-side:bottom"><b>TABLE 4-1</b> — Service record. Future entries to be added below in ink.</caption>
-    <tr><th style="width:90px">Date</th><th>Entry</th><th style="width:120px">Stamp</th></tr>
-    <tr><td>2026</td><td>Commissioned <strong>wildfire-risk-pipeline</strong> v1 — live hourly ELT (§2.1)</td><td><span class="vstamp">SHIPPED</span></td></tr>
-    <tr><td>2026</td><td>Certified: <strong>Data Engineering — IBM</strong></td><td><span class="vstamp">VERIFIED</span></td></tr>
-    <tr><td>2026</td><td>Completed <strong>ipl-analysis</strong> (§2.2)</td><td><span class="vstamp">SHIPPED</span></td></tr>
-    <tr><td>2025</td><td>Completed <strong>netflix-analysis</strong> (§2.3)</td><td><span class="vstamp">SHIPPED</span></td></tr>
-    <tr><td>2024–26</td><td><strong>M.S. Data Analytics</strong> — Webster University, USA</td><td><span class="vstamp">IN PROGRESS</span></td></tr>
-    <tr><td>earlier</td><td>Certified: Google Data Analytics · SQL for Data Science · SAP Cloud ERP Onboarding</td><td><span class="vstamp">VERIFIED</span></td></tr>
-    <tr><td>2023</td><td><strong>B.Tech, Computer Science</strong> — Samskruthi Engineering College, India</td><td><span class="vstamp">VERIFIED</span></td></tr>
-    <!-- Future entry template — copy, edit, uncomment:
-    <tr><td>YYYY</td><td>Entry text</td><td><span class="vstamp">VERIFIED</span></td></tr>
-    -->
-  </table>
-  <p class="pencil" style="font-size:21px">maintenance rule: if it isn't tested, it isn't done.</p>
-</section>
-
-<hr class="sec-rule">
-
-<!-- ================= SECTION 5 ================= -->
-<section id="sec5">
-  <div class="sec-head"><span class="sec-no">5</span><h2 class="sec-title">Ordering information</h2></div>
-  <p class="sec-intro">To place an order for this operator — an interview, a take-home, or a hard question about the pipeline — use any channel below. Inbox monitored more reliably than most DAGs.</p>
-  <div class="order">
-    <h3>Part No. VVM-DE-2026 — Data Engineer, one (1) unit</h3>
-    <div class="order-grid">
-      <p><span class="k">Email</span><a href="mailto:vishnumutha1410@gmail.com">vishnumutha1410@gmail.com</a></p>
-      <p><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/vishnu-vardhan-mutha-5187942b9/" target="_blank" rel="noopener">vishnu-vardhan-mutha ↗</a></p>
-      <p><span class="k">GitHub</span><a href="https://github.com/vishnumutha1410" target="_blank" rel="noopener">vishnumutha1410 ↗</a></p>
-      <p><span class="k">Résumé</span><a href="resume.pdf" target="_blank" rel="noopener">Appendix A — PDF ↓</a></p>
-      <p><span class="k">Availability</span>Austin, TX metro · open to roles anywhere in the USA</p>
-      <p><span class="k">Lead time</span>Replies within one business day</p>
+<main>
+<section id="lore">
+  <div class="wrap reveal">
+    <p class="kick">01 · how i ended up upstream</p>
+    <h2>i started out making charts. then i kept meeting the same villain.</h2>
+    <div class="story">
+      <div>
+        <p>Every chart anyone actually trusted had something unglamorous behind it: clean ingestion, a sane model, data somebody had bothered to test. And every chart that blew up in someone's face? Same villain every time — <b>a pipeline nobody owned</b>.</p>
+        <p>So I went upstream. B.Tech in Computer Science in India, then a move to Texas for an M.S. in Data Analytics at Webster. Between classes I built the thing I wanted to exist: a real pipeline, held to real standards — <b>version control, automated tests, CI, containers, a scheduler</b>. Not a notebook that runs once and retires.</p>
+        <p>It's been running every hour since. It has flagged real cities for extreme fire risk while I was in class, asleep, or making chai. That's the whole point: <b>accurate is nice. unattended is the flex.</b></p>
+      </div>
+      <div class="aside" role="complementary" aria-label="Quick facts">
+        <div class="row"><span class="k">role</span><span class="v">data engineer</span></div>
+        <div class="row"><span class="k">base</span><span class="v">austin, tx metro</span></div>
+        <div class="row"><span class="k">degree</span><span class="v">m.s. data analytics, webster '26</span></div>
+        <div class="row"><span class="k">stack</span><span class="v">python · sql · snowflake · dbt · airflow</span></div>
+        <div class="row"><span class="k">status</span><span class="v" style="color:var(--pine-mid)">open to work</span></div>
+        <div class="row"><span class="k">fuel</span><span class="v">chai + cron schedules</span></div>
+      </div>
     </div>
   </div>
 </section>
 
+<section id="best">
+  <div class="wrap reveal">
+    <p class="kick">02 · best work</p>
+    <h2>the one that runs itself.</h2>
+    <p class="lede">One project, fully defended: problem, build, receipts. This is the thing I'd want to be interviewed about.</p>
+
+    <div class="case">
+      <div class="case-head">
+        <h3>wildfire-risk-pipeline</h3>
+        <span class="live">● live · runs hourly · 8/8 tests passing</span>
+      </div>
+      <div class="case-body">
+        <p class="ph">the problem</p>
+        <p>Wildfire risk and air quality shift hour by hour, and the raw signals — temperature, humidity, wind, PM2.5 — sit in an API nobody's watching. Useful exactly when it's fresh, useless as a one-off notebook.</p>
+
+        <p class="ph">the build</p>
+        <ol class="plan">
+          <li><b>Ingest hourly.</b> Python pulls live weather + air-quality data for 6 US cities from the Open-Meteo REST API and lands it in a Snowflake RAW schema with defined source-to-target mappings. Raw stays <b>immutable</b> — every output is reproducible from source.</li>
+          <li><b>Transform in the warehouse.</b> Three dbt models (staging → two marts) compute a 0–100 fire-risk score and classify PM2.5 into WHO/EPA health bands. API changes get absorbed in one staging model instead of breaking everything downstream.</li>
+          <li><b>Test everything, every run.</b> 8 automated dbt data-quality checks (not-null, accepted-values) validate every output row. Bad data doesn't reach the analytics layer, period.</li>
+          <li><b>Orchestrate &amp; gate.</b> An Airflow DAG enforces ingest → dbt run → dbt test, so transforms never touch a failed load. Docker makes the whole stack reproducible; GitHub Actions runs the test suite on every push — broken SQL can't ship.</li>
+        </ol>
+
+        <p class="ph">the receipts</p>
+        <div class="receipts">
+          <div class="rc"><div class="n">24<em>/day</em></div><div class="l">scheduled runs, unattended</div></div>
+          <div class="rc"><div class="n">8<em>/8</em></div><div class="l">quality tests, every run &amp; every push</div></div>
+          <div class="rc"><div class="n">79.7</div><div class="l">Denver's live fire-risk score when flagged Extreme (Phoenix: 79.3)</div></div>
+          <div class="rc"><div class="n">6</div><div class="l">US cities monitored in real time</div></div>
+        </div>
+
+        <div class="case-links">
+          <a class="btn hot" href="https://github.com/vishnumutha1410/wildfire-risk-pipeline" target="_blank" rel="noopener">read the code →</a>
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">resume ↓</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reps">
+  <div class="wrap reveal">
+    <p class="kick">03 · the reps</p>
+    <h2>the projects that built the muscle.</h2>
+
+    <article class="rep">
+      <div class="rep-top"><span class="no">01</span><h3>ipl-analysis</h3><span class="st">180,000+ records · 2026</span></div>
+      <p>Thirteen seasons of IPL cricket, 800+ matches, joined from two raw CSVs. I profiled both files and fixed the join-key mismatches <em>before</em> aggregating — because the interesting bugs in analytics are always upstream of the chart. Out the other side: top scorers, wicket takers, toss patterns, venue trends, and 6 publication-ready visualizations, packaged as a script + notebook + README so anyone can re-run it without me.</p>
+      <p class="facts">python · pandas · matplotlib · seaborn — <a href="https://github.com/vishnumutha1410/ipl-analysis" target="_blank" rel="noopener">github ↗</a></p>
+    </article>
+
+    <article class="rep">
+      <div class="rep-top"><span class="no">02</span><h3>netflix-analysis</h3><span class="st">8,800+ titles · 2025</span></div>
+      <p>The full Netflix catalog, 2008–2021, cleaned and transformed with Pandas and mined for what actually changed: acquisition trends, genre spread, and the ratings mix — TV-MA turned out to be 36% of everything. Built as a modular script (not a one-off notebook), 6 charts, documented pipeline on GitHub.</p>
+      <p class="facts">python · pandas · matplotlib · seaborn — <a href="https://github.com/vishnumutha1410/netflix-analysis" target="_blank" rel="noopener">github ↗</a></p>
+    </article>
+
+    <article class="rep">
+      <div class="rep-top"><span class="no">03</span><h3>driver-drowsiness-detection</h3><span class="st">93% accuracy · academic, 2023</span></div>
+      <p>A real-time CNN watching live video for driver fatigue — eyes, blinks, head movement — firing automated alerts the moment it sees trouble. 93% accuracy. My first taste of "this has to work continuously, not just in a demo," which, in hindsight, explains everything above.</p>
+      <p class="facts">python · opencv · tensorflow · keras</p>
+    </article>
+  </div>
+</section>
+
+<section id="paperwork">
+  <div class="wrap reveal">
+    <p class="kick">04 · the official stuff</p>
+    <h2>education &amp; certifications.</h2>
+    <p class="lede">Recruiters, this part's for you.</p>
+    <div class="paper-grid">
+      <div class="pcard">
+        <h3>education</h3>
+        <div class="pline"><b>M.S., Data Analytics</b><span class="m">Webster University, USA · aug 2024 – jun 2026</span></div>
+        <div class="pline"><b>B.Tech, Computer Science</b><span class="m">Samskruthi Engineering College, India · 2023</span></div>
+      </div>
+      <div class="pcard">
+        <h3>certifications</h3>
+        <div class="pline"><b>Introduction to Data Engineering</b><span class="m">IBM / Coursera</span></div>
+        <div class="pline"><b>Google Data Analytics</b><span class="m">Google / Coursera</span></div>
+        <div class="pline"><b>SQL for Data Science</b><span class="m">Coursera</span></div>
+        <div class="pline"><b>Cloud Onboarding for SAP Cloud ERP</b><span class="m">SAP</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <p class="kick">05 · say hi</p>
+    <h2>got messy data and a pipeline worth building? we should talk.</h2>
+    <div class="c-links">
+      <a href="mailto:vishnumutha1410@gmail.com">email<span class="h">vishnumutha1410@gmail.com</span></a>
+      <a href="https://www.linkedin.com/in/vishnu-vardhan-mutha-5187942b9/" target="_blank" rel="noopener">linkedin<span class="h">/in/vishnu-vardhan-mutha ↗</span></a>
+      <a href="https://github.com/vishnumutha1410" target="_blank" rel="noopener">github<span class="h">/vishnumutha1410 ↗</span></a>
+      <a href="resume.pdf" target="_blank" rel="noopener">resume<span class="h">pdf, one page ↓</span></a>
+    </div>
+    <p class="sign">Down to talk data engineer roles, take-homes, or why your dashboard is lying to you. Reply time: faster than my DAG's retry interval. Meanwhile, the pipeline's still running — it doesn't need me here either.</p>
+  </div>
+</section>
+</main>
+
 <footer>
-  <span>© 2026 V. V. MUTHA — THIS MANUAL IS ONE HTML FILE. NO FRAMEWORK. IT ALSO PRINTS NICELY.</span>
-  <a href="https://github.com/vishnumutha1410/portfolio" target="_blank" rel="noopener">VIEW SOURCE OF THIS MANUAL ↗</a>
+  <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <span>© 2026 vishnu vardhan mutha · austin, tx</span>
+    <span>one html file, no framework, built by hand</span>
+    <a class="u" href="https://github.com/vishnumutha1410/portfolio" target="_blank" rel="noopener">view source of this site →</a>
+  </div>
 </footer>
 
-</div>
+<script>
+(function(){
+  // minutes until the top of the hour — when the pipeline actually runs
+  var el = document.getElementById('mins');
+  function tick(){ el.textContent = 60 - new Date().getMinutes(); }
+  tick(); setInterval(tick, 30000);
+
+  // scroll reveals
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(function(n){ io.observe(n); });
+})();
+</script>
 </body>
 </html>
