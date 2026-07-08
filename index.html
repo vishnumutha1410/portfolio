@@ -65,6 +65,8 @@
   .hero .hi{font-family:var(--mono);font-size:14px;color:var(--pine-mid);margin-bottom:18px}
   h1{font-size:clamp(44px,8.4vw,104px);font-weight:800;line-height:.98;letter-spacing:-2.5px}
   h1 .accent{color:var(--tang);font-style:italic;font-weight:700}
+  .big2{font-size:clamp(24px,3.8vw,44px);font-weight:800;letter-spacing:-1.2px;line-height:1.12;margin-top:22px;max-width:760px}
+  .big2 .accent{color:var(--tang);font-style:italic;font-weight:700}
   .hero p.sub{max-width:560px;margin-top:26px;font-size:clamp(16px,2vw,19px);color:var(--pine-soft)}
   .hero p.sub b{color:var(--pine);font-weight:700}
   .hero-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:38px}
@@ -142,6 +144,68 @@
   .rep .facts{font-family:var(--mono);font-size:12.5px;color:var(--pine-mid);margin-top:10px}
   .rep .facts a{color:var(--pine);text-decoration:underline;text-decoration-color:var(--tang);text-underline-offset:3px}
 
+  /* rep visuals */
+  .rep .mini-receipts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:18px 0 4px;max-width:720px}
+  .rep-fig{max-width:720px;margin:18px 0 4px;border:1.5px solid var(--pine);border-radius:14px;padding:16px 18px;background:var(--bone)}
+  .rep-fig .cap{font-family:var(--mono);font-size:11.5px;color:var(--pine-soft);margin-top:10px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .rep-fig .cap b{color:var(--tang);font-weight:600}
+  .seasons{display:flex;align-items:flex-end;gap:6px;height:64px}
+  .seasons i{flex:1;background:var(--pine);border-radius:3px 3px 0 0;opacity:.85}
+  .seasons i.hot{background:var(--tang);opacity:1}
+  .share .track{height:26px;border:1.5px solid var(--pine);border-radius:8px;background:var(--bone-2);position:relative;overflow:hidden}
+  .share .fill{position:absolute;inset:0 auto 0 0;background:repeating-linear-gradient(-45deg,var(--tang) 0 8px,#e64a1d 8px 16px);border-right:1.5px solid var(--pine)}
+  .share .pct{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:12px;font-weight:600;color:var(--bone)}
+  .frames{display:flex;gap:6px}
+  .frames span{flex:1;height:44px;border:1.5px solid var(--pine);border-radius:8px;background:var(--bone-2);display:flex;align-items:center;justify-content:center;font-size:17px}
+  .frames span.alert{background:var(--tang);border-color:var(--tang);color:var(--bone);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:1px}
+  ul.did{list-style:none;max-width:700px;margin-top:12px}
+  ul.did li{padding:8px 0 8px 24px;position:relative;color:var(--pine-soft);border-bottom:1px dashed var(--line);font-size:15.5px}
+  ul.did li::before{content:"→";position:absolute;left:0;color:var(--tang)}
+  ul.did b{color:var(--pine)}
+
+  /* evidence figures */
+  .shot{border:1.5px solid var(--pine);border-radius:14px;overflow:hidden;background:var(--bone);margin:14px 0 6px}
+  .shot img{display:block;width:100%}
+  .shot .cap{font-family:var(--mono);font-size:11.5px;color:var(--pine-soft);padding:10px 14px;border-top:1.5px solid var(--line);background:var(--bone-2)}
+  .shot .cap b{color:var(--tang);font-weight:600}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:720px){.two{grid-template-columns:1fr}}
+
+  /* architecture + schema diagrams */
+  .diagram{border:1.5px solid var(--pine);border-radius:14px;background:var(--bone);padding:20px 18px 12px;margin:14px 0 6px}
+  .diagram svg{width:100%;height:auto}
+  .diagram .cap{font-family:var(--mono);font-size:11.5px;color:var(--pine-soft);margin-top:8px}
+  .diagram text{font-family:var(--mono)}
+  .dg-box{fill:var(--bone-2);stroke:var(--pine);stroke-width:1.5}
+  .dg-box.raw{fill:#ECE9DF}
+  .dg-box.mart{fill:#E4EFE9;stroke:var(--pine-mid)}
+  .dg-t{fill:var(--pine);font-size:12.5px;font-weight:600}
+  .dg-s{fill:var(--pine-soft);font-size:10.5px}
+  .dg-line{stroke:var(--pine);stroke-width:1.5;fill:none}
+  .dg-line.test{stroke:var(--tang);stroke-dasharray:5 4}
+  .dg-lab{fill:var(--tang);font-size:10px;font-weight:600}
+
+  /* honest engineering detail blocks */
+  .depth{margin-top:14px;border-top:1px dashed var(--line)}
+  .depth details{border-bottom:1px dashed var(--line)}
+  .depth summary{cursor:pointer;padding:12px 4px;font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--pine);list-style:none;display:flex;align-items:center;gap:10px}
+  .depth summary::-webkit-details-marker{display:none}
+  .depth summary::before{content:"+";color:var(--tang);font-size:16px;width:14px}
+  .depth details[open] summary::before{content:"–"}
+  .depth .dd{padding:2px 4px 16px 28px;color:var(--pine-soft);font-size:15px;max-width:720px}
+  .depth .dd b{color:var(--pine)}
+  .depth .dd code{font-family:var(--mono);font-size:12.5px;background:var(--bone-2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--pine)}
+
+  /* screenshot placeholder slots */
+  .slot{border:2px dashed var(--tang);border-radius:14px;background:rgba(255,90,42,.05);padding:26px 20px;margin:14px 0 6px;text-align:center}
+  .slot .tag{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--tang);letter-spacing:.5px}
+  .slot .how{font-family:var(--mono);font-size:12px;color:var(--pine-soft);margin-top:8px;line-height:1.7}
+  .slot .how code{background:var(--bone-2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--pine)}
+  /* folder tree */
+  .tree{font-family:var(--mono);font-size:12.8px;line-height:1.85;background:var(--bone-2);border:1.5px solid var(--pine);border-radius:12px;padding:16px 18px;color:var(--pine-soft);margin:14px 0 6px;overflow-x:auto;white-space:pre}
+  .tree b{color:var(--pine);font-weight:600}
+  .tree .c{color:var(--tang)}
+
   /* paperwork */
   .paper-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:34px}
   @media(max-width:760px){.paper-grid{grid-template-columns:1fr}}
@@ -179,9 +243,9 @@
 
 <header class="hero" id="top">
   <div class="wrap">
-    <p class="hi">// austin, tx · webster '26 · open to data engineer roles</p>
-    <h1>my code ran <span class="accent">24 times</span> today.<br>i checked on it once.</h1>
-    <p class="sub">I'm a <b>data engineer</b>. I build the boring, load-bearing part of data — pipelines that ingest, transform, test, and ship on a schedule, <b>with nobody watching</b>. Dashboards get the applause. Pipelines get the pager. I chose the pager.</p>
+    <p class="hi">// hi, i'm —</p>
+    <h1>vishnu vardhan<br><span class="accent">mutha.</span></h1>
+    <p class="sub">A <b>data engineer</b> based in Austin, TX, finishing an M.S. in Data Analytics at Webster University. I build the boring, load-bearing part of data — pipelines that ingest, transform, test, and ship on a schedule, <b>with nobody watching</b>. Dashboards get the applause; pipelines get the pager. I chose the pager.</p>
     <div class="hero-stats">
       <div class="hs"><div class="n">1</div><div class="l">live pipeline, hourly</div></div>
       <div class="hs"><div class="n">8<em>/8</em></div><div class="l">tests, every single run</div></div>
@@ -189,11 +253,12 @@
     </div>
 
     <nav class="menu" aria-label="Sections">
-      <a href="#lore"><span class="no">01</span><span class="t">how i ended up upstream</span><span class="d">the origin story, short version</span></a>
-      <a href="#best"><span class="no">02</span><span class="t">the one that runs itself</span><span class="d">problem → build → receipts</span></a>
-      <a href="#reps"><span class="no">03</span><span class="t">the reps</span><span class="d">the projects that built the muscle</span></a>
-      <a href="#paperwork"><span class="no">04</span><span class="t">the official stuff</span><span class="d">education &amp; certifications</span></a>
-      <a href="#contact"><span class="no">05</span><span class="t">say hi</span><span class="d">replies faster than a DAG retry</span></a>
+      <a href="#hook"><span class="no">01</span><span class="t">the short version</span><span class="d">what i actually do all day</span></a>
+      <a href="#lore"><span class="no">02</span><span class="t">how i ended up upstream</span><span class="d">the origin story</span></a>
+      <a href="#best"><span class="no">03</span><span class="t">the one that runs itself</span><span class="d">problem → build → receipts</span></a>
+      <a href="#reps"><span class="no">04</span><span class="t">the reps</span><span class="d">the projects that built the muscle</span></a>
+      <a href="#paperwork"><span class="no">05</span><span class="t">the official stuff</span><span class="d">education &amp; certifications</span></a>
+      <a href="#contact"><span class="no">06</span><span class="t">say hi</span><span class="d">replies faster than a DAG retry</span></a>
       <a href="resume.pdf" target="_blank" rel="noopener"><span class="no">↓</span><span class="t">resume, the pdf</span><span class="d">for the recruiters in a hurry</span></a>
     </nav>
     <p class="menu-note">(pick whichever you're curious about — it'll take you there)</p>
@@ -207,9 +272,22 @@
 </div>
 
 <main>
+<section id="hook">
+  <div class="wrap reveal">
+    <p class="kick">01 · the short version</p>
+    <h2>my code ran <span style="color:var(--tang);font-style:italic">24 times</span> today. i checked on it once.</h2>
+    <p class="lede">That's the job, in one line. I build data pipelines that don't need a human standing over them — they ingest fresh data, transform it, test it, and ship it on a schedule, recover on their own when a run fails, then do it again an hour later whether I'm at my desk or asleep. Everything below is proof of that one idea — with screenshots of the real thing, not a demo.</p>
+    <div class="hero-stats" style="margin-top:30px">
+      <div class="hs"><div class="n">24<em>/day</em></div><div class="l">unattended pipeline runs</div></div>
+      <div class="hs"><div class="n">6</div><div class="l">us cities monitored live</div></div>
+      <div class="hs"><div class="n">0</div><div class="l">manual steps in the loop</div></div>
+    </div>
+  </div>
+</section>
+
 <section id="lore">
   <div class="wrap reveal">
-    <p class="kick">01 · how i ended up upstream</p>
+    <p class="kick">02 · how i ended up upstream</p>
     <h2>i started out making charts. then i kept meeting the same villain.</h2>
     <div class="story">
       <div>
@@ -231,7 +309,7 @@
 
 <section id="best">
   <div class="wrap reveal">
-    <p class="kick">02 · best work</p>
+    <p class="kick">03 · best work</p>
     <h2>the one that runs itself.</h2>
     <p class="lede">One project, fully defended: problem, build, receipts. This is the thing I'd want to be interviewed about.</p>
 
@@ -243,6 +321,47 @@
       <div class="case-body">
         <p class="ph">the problem</p>
         <p>Wildfire risk and air quality shift hour by hour, and the raw signals — temperature, humidity, wind, PM2.5 — sit in an API nobody's watching. Useful exactly when it's fresh, useless as a one-off notebook.</p>
+
+        <p class="ph">the architecture</p>
+        <div class="diagram">
+          <svg viewBox="0 0 860 220" role="img" aria-label="Architecture: Open-Meteo API ingested by Python into Snowflake RAW, transformed by dbt staging and mart models, tested by 8 dbt checks, orchestrated by Airflow inside Docker with GitHub Actions CI">
+            <!-- row of stages -->
+            <rect class="dg-box" x="14" y="40" width="150" height="58" rx="9"/>
+            <text class="dg-t" x="30" y="64">Open-Meteo API</text><text class="dg-s" x="30" y="82">REST · 6 US cities</text>
+            <rect class="dg-box raw" x="214" y="40" width="150" height="58" rx="9"/>
+            <text class="dg-t" x="230" y="64">Snowflake RAW</text><text class="dg-s" x="230" y="82">immutable landing</text>
+            <rect class="dg-box" x="414" y="40" width="150" height="58" rx="9"/>
+            <text class="dg-t" x="430" y="64">dbt staging</text><text class="dg-s" x="430" y="82">stg_air_weather</text>
+            <rect class="dg-box mart" x="614" y="26" width="230" height="40" rx="9"/>
+            <text class="dg-t" x="628" y="51">fct_fire_risk (0–100 score)</text>
+            <rect class="dg-box mart" x="614" y="74" width="230" height="40" rx="9"/>
+            <text class="dg-t" x="628" y="99">fct_air_quality (WHO/EPA bands)</text>
+            <!-- arrows -->
+            <path class="dg-line" d="M164 69 H210" marker-end="url(#ar)"/>
+            <path class="dg-line" d="M364 69 H410" marker-end="url(#ar)"/>
+            <path class="dg-line" d="M564 69 H600 V46 H610" marker-end="url(#ar)"/>
+            <path class="dg-line" d="M564 69 H600 V94 H610" marker-end="url(#ar)"/>
+            <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#16281F"/></marker></defs>
+            <!-- test loop -->
+            <path class="dg-line test" d="M729 114 V150 H289 V100" marker-end="url(#arR)"/>
+            <defs><marker id="arR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#FF5A2A"/></marker></defs>
+            <text class="dg-lab" x="330" y="144">8 dbt tests — not_null + accepted_values, every run</text>
+            <!-- orchestration band -->
+            <rect x="14" y="176" width="830" height="34" rx="8" fill="none" stroke="#4E6157" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <text class="dg-s" x="28" y="197" fill="#4E6157">ORCHESTRATION: Apache Airflow DAG (ingest → dbt run → dbt test)  ·  containerized with Docker  ·  GitHub Actions runs the test suite on every push</text>
+          </svg>
+          <p class="cap">Fig. 1 — the whole system on one line of sight. Raw stays raw; logic lives in dbt; nothing ships untested.</p>
+        </div>
+
+        <div class="slot">
+          <div class="tag">[ dbt LINEAGE GRAPH — drop screenshot here ]</div>
+          <div class="how">Generate it: <code>dbt docs generate</code> → <code>dbt docs serve</code> → open the DAG/lineage view → screenshot <code>stg_air_weather → fct_fire_risk, fct_air_quality</code>. Save as <code>img/dbt_lineage.png</code>. This <em>shows</em> the layering I describe below instead of just claiming it.</div>
+        </div>
+
+        <div class="slot">
+          <div class="tag">[ fct_fire_risk.sql — drop screenshot/snippet here ]</div>
+          <div class="how">Screenshot the CASE logic that turns temperature + humidity + wind into the 0–100 score. Save as <code>img/fct_fire_risk_sql.png</code>. This is the one thing that proves I can actually model data, not just orchestrate it.</div>
+        </div>
 
         <p class="ph">the build</p>
         <ol class="plan">
@@ -260,6 +379,66 @@
           <div class="rc"><div class="n">6</div><div class="l">US cities monitored in real time</div></div>
         </div>
 
+        <p class="ph">the proof (not screenshots of a demo — the actual thing running)</p>
+        <div class="shot">
+          <img src="img/airflow_dag.png" alt="Airflow UI showing the wildfire_risk_pipeline DAG scheduled @hourly, with the three tasks ingest_weather_and_air_quality, dbt_run and dbt_test, and a run history of 4 successes and 2 failures that recovered." loading="lazy" />
+          <div class="cap"><b>Fig. 2 — Airflow.</b> The real DAG, <code style="font-family:var(--mono)">@hourly</code>, three tasks in order. Note the run history: 4 green, 2 red. It <em>has</em> failed — and recovered on the built-in retry. A pipeline that's never failed just hasn't run long enough.</div>
+        </div>
+        <div class="shot">
+          <img src="img/snowflake_query.png" alt="Snowflake worksheet querying WILDFIRE_DB.ANALYTICS.FCT_FIRE_RISK, returning Denver and Phoenix at Extreme risk with scores 79.7 and 79.3, query time 412ms." loading="lazy" />
+          <div class="cap"><b>Fig. 3 — Snowflake.</b> Querying the actual mart: <code style="font-family:var(--mono)">FCT_FIRE_RISK</code> in the <code style="font-family:var(--mono)">ANALYTICS</code> schema. Denver 79.7, Phoenix 79.3, both Extreme — the numbers I quote above, straight from the warehouse. 412 ms.</div>
+        </div>
+
+        <p class="ph">the parts a senior would ask about</p>
+        <div class="depth">
+          <details><summary>Data model — grain, dimensions, facts</summary>
+            <div class="dd">Star-ish layout. <code>stg_air_weather</code> cleans and unions the raw API pulls into one typed staging model. From it, two fact tables at a <b>grain of one row per city per hourly reading</b>: <code>fct_fire_risk</code> (region, timestamp, temperature, humidity, wind → a 0–100 score and a risk level) and <code>fct_air_quality</code> (region, timestamp, PM2.5 → WHO/EPA band). Region + timestamp is the natural key. Small dataset, but modeled the way I'd model a big one — so scaling it is a size problem, not a rewrite.</div>
+          </details>
+          <details><summary>Data-quality strategy — why these 8 tests</summary>
+            <div class="dd">The tests guard the two things that actually break this pipeline: <b>nulls</b> (a dropped API field silently poisons a score) and <b>out-of-range categories</b> (a risk level or health band that isn't in the allowed set means the scoring logic drifted). So: <code>not_null</code> on every column the score depends on, and <code>accepted_values</code> on the risk level and PM2.5 band. They run as the last DAG task — bad data fails the run instead of reaching a dashboard. What I <em>don't</em> test yet: unit tests on the Python extractor. That's the honest next gap (see roadmap).</div>
+          </details>
+          <details><summary>Failure handling & retries — what happens at 3am</summary>
+            <div class="dd">The DAG runs with <code>retries=1</code> and a <code>retry_delay</code> of 5 minutes, so a transient API blip self-heals without me. <code>catchup=False</code> — if a run is missed I want the <em>next</em> fresh hour, not a backfill stampede of stale weather. Raw landing is append-only and immutable, so a bad transformation never corrupts source data; I can rebuild every mart from RAW. Fig. 2 shows this isn't theoretical — two runs failed and the system carried on.</div>
+          </details>
+          <details><summary>Scalability — what I'd change at 100× the data</summary>
+            <div class="dd">Today it's 6 cities and tiny volumes, deliberately. At 100× I'd switch the marts from full-refresh to <b>incremental dbt models</b> keyed on region + timestamp (only build new hours), partition/cluster the fact tables on the timestamp, and size the Snowflake warehouse up only for the transform window then auto-suspend — pay for compute by the second instead of leaving it on. The DAG structure doesn't change; that's the point of building it this way small.</div>
+          </details>
+          <details><summary>Why this stack (and not the obvious alternatives)</summary>
+            <div class="dd"><b>ELT, not ETL</b> — land raw first so every number is reproducible from source. <b>Snowflake over self-hosted Postgres</b> — elasticity and auto-suspend beat tuning a box for a project that runs 24×/day. <b>dbt over hand-written SQL scripts</b> — tests, lineage, and docs come free and the transformation is version-controlled. <b>Airflow over cron</b> — cron can't express "test <em>after</em> load, and tell me when it breaks." <b>Docker</b> — so it runs identically on my machine and anywhere else.</div>
+          </details>
+          <details><summary>How the repo is laid out</summary>
+            <div class="dd">Structured like a project meant to be read, not a notebook dump:
+<div class="tree"><b>wildfire-risk-pipeline/</b>
+├── <b>dags/</b>
+│   └── <span class="c">wildfire_pipeline_dag.py</span>   → Airflow DAG: ingest → dbt run → dbt test
+├── <b>ingestion/</b>
+│   ├── <span class="c">ingest.py</span>                  → pulls Open-Meteo, lands in Snowflake RAW
+│   └── requirements.txt
+├── <b>wildfire_dbt/</b>
+│   ├── models/<b>staging/</b>  → stg_air_weather.sql, _sources.yml
+│   ├── models/<b>marts/</b>    → fct_fire_risk.sql, fct_air_quality.sql, _schema.yml
+│   └── dbt_project.yml
+└── <span class="c">docker-compose.yaml</span>            → the whole stack, one command</div></div>
+          </details>
+          <details><summary>Idempotency — can it re-run without making a mess?</summary>
+            <div class="dd">The question every scheduler forces you to answer: what happens when the same hour runs twice (a retry, a manual re-trigger)? Because transformations live in dbt and rebuild the marts from RAW rather than mutating them in place, <b>a re-run reproduces the same marts instead of double-counting</b> — the transform layer is idempotent by construction. The ingestion append is the layer I'm hardening next (dedup on <code>region + timestamp</code> so a double-fire can't duplicate rows) — called out honestly in the roadmap.</div>
+          </details>
+          <details><summary>Secrets &amp; security</summary>
+            <div class="dd">Credentials (Snowflake account, API access) live in <b>environment variables, never in the repo</b> — the <code>.gitignore</code> keeps profiles and secrets out of version control. Nothing sensitive is committed. Small thing, but a leaked warehouse key is the fastest way to fail a review, so it's deliberate.</div>
+          </details>
+          <details><summary>How I'd know it broke (observability, honestly)</summary>
+            <div class="dd">Today: the failed run is visible in the Airflow UI (Fig. 2), and <code>retries=1</code> heals the common transient case on its own. What I <em>don't</em> have yet is push alerting — I have to look. Production-grade would add dbt <code>source freshness</code> checks plus a failure notification (Slack/email on DAG failure). I'd rather name that gap than pretend a 6-city project has an on-call rotation.</div>
+          </details>
+          <details><summary>Roadmap — what ships next</summary>
+            <div class="dd">In priority order: <b>idempotent ingestion</b> (dedup on region + timestamp); <b>failure alerting</b> + dbt <code>source freshness</code> so it tells me when it breaks instead of me checking; <b>unit tests</b> on the API client (pytest); a small <b>FastAPI</b> endpoint serving the latest scores as JSON so the marts have a real consumer; and <b>incremental models</b> once volume justifies it. None of these are hard — they're the difference between "runs" and "runs in production," and I know which line I'm on.</div>
+          </details>
+        </div>
+
+        <div class="slot">
+          <div class="tag">[ GITHUB ACTIONS RUN — drop screenshot here ]</div>
+          <div class="how">Open your repo → Actions tab → a workflow run showing the dbt test job. Screenshot the green check (and if you've got a failed-then-fixed run, even better — same honesty as the Airflow shot). Save as <code>img/github_actions.png</code>. This is the last core claim on the page without a picture behind it.</div>
+        </div>
+
         <div class="case-links">
           <a class="btn hot" href="https://github.com/vishnumutha1410/wildfire-risk-pipeline" target="_blank" rel="noopener">read the code →</a>
           <a class="btn" href="resume.pdf" target="_blank" rel="noopener">resume ↓</a>
@@ -271,24 +450,71 @@
 
 <section id="reps">
   <div class="wrap reveal">
-    <p class="kick">03 · the reps</p>
+    <p class="kick">04 · the reps</p>
     <h2>the projects that built the muscle.</h2>
 
     <article class="rep">
       <div class="rep-top"><span class="no">01</span><h3>ipl-analysis</h3><span class="st">180,000+ records · 2026</span></div>
-      <p>Thirteen seasons of IPL cricket, 800+ matches, joined from two raw CSVs. I profiled both files and fixed the join-key mismatches <em>before</em> aggregating — because the interesting bugs in analytics are always upstream of the chart. Out the other side: top scorers, wicket takers, toss patterns, venue trends, and 6 publication-ready visualizations, packaged as a script + notebook + README so anyone can re-run it without me.</p>
+      <p>Thirteen seasons of IPL cricket — two raw CSVs that didn't want to be joined. The interesting bugs in analytics are always upstream of the chart, so the work started there:</p>
+      <ul class="did">
+        <li><b>Profiled both datasets first</b> — found and fixed join-key mismatches between the match file and the ball-by-ball file <em>before</em> a single aggregation ran.</li>
+        <li><b>Joined and aggregated 180,000+ deliveries</b> across 800+ matches — merged the ball-by-ball file to the match file on <code style="font-family:var(--mono);font-size:12.5px;background:var(--bone-2);padding:1px 5px;border-radius:4px">match_id</code> with Pandas, into per-player, per-team, and per-venue views.</li>
+        <li><b>Surfaced the patterns:</b> top run scorers and wicket takers, team win records, whether winning the toss actually matters, and season-over-season growth.</li>
+        <li><b>Packaged it three ways</b> — standalone script, notebook, documented README — so anyone can re-run it without me in the room.</li>
+      </ul>
+      <div class="shot">
+        <img src="img/ipl_seasons.png" alt="Bar chart of IPL matches played per season across 13 seasons, generated from the analysis." loading="lazy" />
+        <div class="cap"><b>fig.</b> matches per season — actual output from the repo, not a mock. <a href="https://github.com/vishnumutha1410/ipl-analysis/tree/main/outputs" target="_blank" rel="noopener" style="color:var(--tang)">5 more charts →</a></div>
+      </div>
+      <div class="mini-receipts">
+        <div class="rc"><div class="n">180K<em>+</em></div><div class="l">ball-by-ball deliveries</div></div>
+        <div class="rc"><div class="n">800<em>+</em></div><div class="l">matches across 13 seasons</div></div>
+        <div class="rc"><div class="n">2</div><div class="l">messy CSVs, reconciled</div></div>
+        <div class="rc"><div class="n">6</div><div class="l">publication-ready charts</div></div>
+      </div>
       <p class="facts">python · pandas · matplotlib · seaborn — <a href="https://github.com/vishnumutha1410/ipl-analysis" target="_blank" rel="noopener">github ↗</a></p>
     </article>
 
     <article class="rep">
       <div class="rep-top"><span class="no">02</span><h3>netflix-analysis</h3><span class="st">8,800+ titles · 2025</span></div>
-      <p>The full Netflix catalog, 2008–2021, cleaned and transformed with Pandas and mined for what actually changed: acquisition trends, genre spread, and the ratings mix — TV-MA turned out to be 36% of everything. Built as a modular script (not a one-off notebook), 6 charts, documented pipeline on GitHub.</p>
+      <p>The full Netflix catalog, 2008–2021 — 8,800+ titles of inconsistent, gap-riddled data, turned into answers about how the library actually grew:</p>
+      <ul class="did">
+        <li><b>Cleaned and transformed the raw catalog</b> with Pandas — missing values, inconsistent formats, multi-value genre fields split for analysis.</li>
+        <li><b>Measured what changed:</b> content-acquisition trends, genre distribution, and catalog growth across 14 years — with the USA measured as the top content producer.</li>
+        <li><b>Found the headline stat:</b> TV-MA is the dominant rating at 36% of all titles — the catalog skews adult, and the data proves it.</li>
+        <li><b>Built it as a modular script</b>, not a one-off notebook — 6 charts and a fully documented pipeline published on GitHub.</li>
+      </ul>
+      <div class="shot">
+        <img src="img/netflix_genre.png" alt="Heatmap of Netflix genre distribution over release years, generated from the analysis." loading="lazy" />
+        <div class="cap"><b>fig.</b> genre distribution heatmap — actual output from the repo. <a href="https://github.com/vishnumutha1410/netflix-analysis/tree/main/outputs" target="_blank" rel="noopener" style="color:var(--tang)">4 more charts →</a></div>
+      </div>
+      <div class="mini-receipts">
+        <div class="rc"><div class="n">8,800<em>+</em></div><div class="l">titles cleaned &amp; analyzed</div></div>
+        <div class="rc"><div class="n">14</div><div class="l">years of catalog history</div></div>
+        <div class="rc"><div class="n">36%</div><div class="l">TV-MA — the dominant rating</div></div>
+        <div class="rc"><div class="n">6</div><div class="l">publication-ready charts</div></div>
+      </div>
       <p class="facts">python · pandas · matplotlib · seaborn — <a href="https://github.com/vishnumutha1410/netflix-analysis" target="_blank" rel="noopener">github ↗</a></p>
     </article>
 
     <article class="rep">
       <div class="rep-top"><span class="no">03</span><h3>driver-drowsiness-detection</h3><span class="st">93% accuracy · academic, 2023</span></div>
-      <p>A real-time CNN watching live video for driver fatigue — eyes, blinks, head movement — firing automated alerts the moment it sees trouble. 93% accuracy. My first taste of "this has to work continuously, not just in a demo," which, in hindsight, explains everything above.</p>
+      <p>A real-time safety system: a CNN watching live video for driver fatigue, and sounding the alarm before it becomes a headline.</p>
+      <ul class="did">
+        <li><b>Built a CNN with TensorFlow/Keras</b> trained to read the signs of fatigue from video frames.</li>
+        <li><b>Processed live video with OpenCV</b> — frame capture, detection, and classification running continuously in real time, not on a saved clip.</li>
+        <li><b>Wired detection to action:</b> automated alerts fire the moment drowsiness is detected — an output, not just a score on a screen.</li>
+        <li><b>Hit 93% accuracy</b> — and learned my favorite lesson: "works in the demo" and "works continuously" are two different engineering problems. In hindsight, this project explains everything above it.</li>
+      </ul>
+      <div class="rep-fig" role="img" aria-label="Strip of video frames: eyes open, open, closing, closed, then an alert fires">
+        <div class="frames"><span>👀</span><span>👀</span><span>😑</span><span>😴</span><span class="alert">ALERT!</span></div>
+        <div class="cap"><span><b>fig.</b> the moment the system earns its keep</span><span>live video, frame by frame</span></div>
+      </div>
+      <div class="mini-receipts">
+        <div class="rc"><div class="n">93%</div><div class="l">detection accuracy</div></div>
+        <div class="rc"><div class="n">real-time</div><div class="l">live video, continuous</div></div>
+        <div class="rc"><div class="n">auto</div><div class="l">alerts fired on detection</div></div>
+      </div>
       <p class="facts">python · opencv · tensorflow · keras</p>
     </article>
   </div>
@@ -296,7 +522,7 @@
 
 <section id="paperwork">
   <div class="wrap reveal">
-    <p class="kick">04 · the official stuff</p>
+    <p class="kick">05 · the official stuff</p>
     <h2>education &amp; certifications.</h2>
     <p class="lede">Recruiters, this part's for you.</p>
     <div class="paper-grid">
@@ -318,7 +544,7 @@
 
 <section class="contact" id="contact">
   <div class="wrap reveal">
-    <p class="kick">05 · say hi</p>
+    <p class="kick">06 · say hi</p>
     <h2>got messy data and a pipeline worth building? we should talk.</h2>
     <div class="c-links">
       <a href="mailto:vishnumutha1410@gmail.com">email<span class="h">vishnumutha1410@gmail.com</span></a>
